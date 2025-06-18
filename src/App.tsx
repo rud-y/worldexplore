@@ -65,8 +65,6 @@ function App() {
    </BrowserRouter>
  </CitiesProvider>
   </div>
-
-  
   )
 }
 
