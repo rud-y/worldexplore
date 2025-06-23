@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -22,7 +10,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +22,7 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
     },
     {
       "cityName": "Porto",
@@ -46,31 +34,199 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
-      "cityName": "Barcelona",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "id": "82be",
+      "cityName": "Oberland",
+      "country": "Liechtenstein",
+      "emoji": "🇱🇮",
+      "date": "2025-06-20T16:49:21.582Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
+        "lat": "47.12434465012191",
+        "lng": "9.549865722656252"
+      }
     },
     {
-      "cityName": "Bonn",
+      "id": "a03c",
+      "cityName": "Quiliano",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2025-06-20T16:51:38.196Z",
+      "notes": "Wow.",
+      "position": {
+        "lat": "44.280604121518174",
+        "lng": "8.432006835937502"
+      }
+    },
+    {
+      "id": "5646",
+      "cityName": "Vejle",
+      "country": "Denmark",
+      "emoji": "🇩🇰",
+      "date": "2025-06-20T16:58:19.992Z",
+      "notes": "Denmark :)",
+      "position": {
+        "lat": "55.69306792645791",
+        "lng": "9.563598632812502"
+      }
+    },
+    {
+      "id": "e13e",
+      "cityName": "Kolding",
+      "country": "Denmark",
+      "emoji": "🇩🇰",
+      "date": "2025-06-20T16:59:29.673Z",
+      "notes": "A",
+      "position": {
+        "lat": "55.471070112315985",
+        "lng": "9.450988769531252"
+      }
+    },
+    {
+      "id": "efa9",
+      "cityName": "Kolding",
+      "country": "Denmark",
+      "emoji": "🇩🇰",
+      "date": "2025-06-20T16:59:29.673Z",
+      "notes": "A",
+      "position": {
+        "lat": "55.471070112315985",
+        "lng": "9.450988769531252"
+      }
+    },
+    {
+      "id": "b22b",
+      "cityName": "Alessandria",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2025-06-20T17:02:44.156Z",
+      "notes": "",
+      "position": {
+        "lat": "44.914249368747086",
+        "lng": "8.651733398437502"
+      }
+    },
+    {
+      "id": "4ced",
+      "cityName": "Vercelli",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2025-06-20T17:03:20.257Z",
+      "notes": "",
+      "position": {
+        "lat": "45.31546044422575",
+        "lng": "8.429260253906252"
+      }
+    },
+    {
+      "id": "ce61",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2025-06-20T17:07:19.095Z",
+      "notes": "",
+      "position": {
+        "lat": "51.43346414054374",
+        "lng": "-0.09887695312500001"
+      }
+    },
+    {
+      "id": "8c87",
+      "cityName": "Piacenza",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2025-06-20T17:09:04.912Z",
+      "notes": "",
+      "position": {
+        "lat": "45.05606124274415",
+        "lng": "9.714660644531252"
+      }
+    },
+    {
+      "id": "2b0a",
+      "cityName": "Khenchela",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2025-06-20T17:10:03.600Z",
+      "notes": "",
+      "position": {
+        "lat": "35.41703410234848",
+        "lng": "7.145233154296876"
+      }
+    },
+    {
+      "id": "1598",
+      "cityName": "Villeurbanne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-06-20T17:17:18.333Z",
+      "notes": "FRA?",
+      "position": {
+        "lat": "45.754109791149894",
+        "lng": "4.913635253906251"
+      }
+    },
+    {
+      "id": "737d",
+      "cityName": "Villeurbanne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-06-20T17:17:18.333Z",
+      "notes": "FRA?",
+      "position": {
+        "lat": "45.754109791149894",
+        "lng": "4.913635253906251"
+      }
+    },
+    {
+      "id": "f7ec",
+      "cityName": "Villeurbanne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-06-20T17:17:18.333Z",
+      "notes": "FRA?",
+      "position": {
+        "lat": "45.754109791149894",
+        "lng": "4.913635253906251"
+      }
+    },
+    {
+      "id": "4ce4",
+      "cityName": "Kassel",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "date": "2025-06-20T17:23:06.911Z",
+      "notes": "",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
+        "lat": "51.301428064502886",
+        "lng": "9.49493408203125"
+      }
+    },
+    {
+      "id": "a48d",
+      "cityName": "Skien",
+      "country": "Norway",
+      "emoji": "🇳🇴",
+      "date": "2025-06-20T17:23:06.911Z",
+      "notes": "",
+      "position": {
+        "lat": "59.20547001148443",
+        "lng": "9.615783691406252"
+      }
+    },
+    {
+      "id": "c89b",
+      "cityName": "Gorzow Wielkopolski",
+      "country": "Poland",
+      "emoji": "🇵🇱",
+      "date": "2025-06-20T17:28:18.327Z",
+      "notes": "",
+      "position": {
+        "lat": "52.724649013065175",
+        "lng": "15.224304199218752"
+      }
     }
   ]
 }

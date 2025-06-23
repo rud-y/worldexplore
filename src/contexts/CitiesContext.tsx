@@ -8,12 +8,13 @@ type CitiesContextType = {
  isLoading: boolean;
  currentCity: City;
  getCity: (id: number) => void;
+ createCity: (newCity: City) => City
 }
 
 const CitiesContext = createContext<CitiesContextType | undefined>(undefined);
 
 function CitiesProvider({ children }: { children: City[] }) {
- const [cities, setCities] = useState([]);
+ const [cities, setCities] = useState<City[]>([]);
  const [isLoading, setIsLoading] = useState(false);
  const [currentCity, setCurrentCity] = useState({});
 
@@ -36,6 +37,7 @@ function CitiesProvider({ children }: { children: City[] }) {
  fetchCities();
  }, []);
 
+ // Fetch one city
  async function getCity(id: number) {
    try {
     setIsLoading(true)
@@ -51,9 +53,36 @@ function CitiesProvider({ children }: { children: City[] }) {
   }
  }
 
+ // Create a new city object via form
+ async function createCity(newCity: City) {
+  try {
+   setIsLoading(true)
+   const response = await fetch(`${BASE_URL}/cities/`, {
+    method: 'POST',
+    body: JSON.stringify(newCity),
+    headers: {
+     'Content-Type': 'application/json'
+    }
+   });
+
+   if(!response.ok) throw new Error("Could not create anew city data");
+
+   const newCityData = await response.json() as City;
+   console.log('new city data: ', newCityData)
+
+   setCities(cities => [...cities, newCityData])
+  
+  
+ } catch(error) {
+  alert(`Error creating data: ${(error as Error).message}`)
+ } finally {
+  setIsLoading(false)
+ }
+}
+
 
   return (
-   <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
+   <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity, createCity }}>
     {children}
    </CitiesContext.Provider>
   )

@@ -11,9 +11,9 @@ export default function Map() {
  
  const { cities } = useCities();
  
- const[mapPosition, setMapPosition] = useState([45,10])
+ const[mapPosition, setMapPosition] = useState([60, 0.5])
  const [searchParams] = useSearchParams();
- const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition } = useGeolocation();
+ const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition }: {isLoading: boolean; position: GeolocationPosition | null; getPosition: () => void} = useGeolocation();
 
  const [ lat, lng ] = useUrlPosition();
 
