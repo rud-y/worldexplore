@@ -35,32 +35,31 @@ function Form() {
  const [isLoading, setIsLoading] = useState(false)
 
 
- useEffect( function() {
-  if(!lat || !lng) return <Message message={"Start by clicking on map!"}/>
+ useEffect(() => {
+  if (!lat || !lng) return;
 
   async function fetchCityData() {
-   try {
-    setIsLoadingGeocoding(true)
-    const response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`)
-    const data = await response.json();
-    console.log('data ', data)
+    try {
+      setIsLoadingGeocoding(true);
+      const response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
+      const data = await response.json();
+      console.log('Geoloc data:: ', data);
 
+      if (!data.countryCode)
+        throw new Error('That does not seem to be a city. Click somewhere else.');
 
-    if(!data.countryCode)
-     throw new Error('That does not seem to be a city. Click somewhere else.')
-
-    setEmoji(convertToEmoji(data.countryCode))
-    setCityName(data.city || data.locality || "")
-    setCountry(data.countryName)
-
-   } catch(err){
-    setGeocodingError(err.message)
-   } finally {
-    setIsLoadingGeocoding(false)
-   }
+      setEmoji(convertToEmoji(data.countryCode));
+      setCityName(data.city || data.locality || "");
+      setCountry(data.countryName);
+    } catch (err) {
+      setGeocodingError(err.message);
+    } finally {
+      setIsLoadingGeocoding(false);
+    }
   }
-  fetchCityData()
- }, [lat, lng])
+
+  fetchCityData();
+}, [lat, lng])
 
 
  async function handleSubmit(e: SubmitEvent) {
@@ -79,11 +78,7 @@ function Form() {
 
    await createCity(newCity);
    navigate("/app/cities");
-
-  // console.log('newCity in form: ', newCity)
-
  }
-
 
  if(isLoadingGeocoding) return <Spinner />
  if(geocodingError) return <Message message={geocodingError} />
@@ -115,7 +110,7 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary" >Add</Button>
+        <Button type="primary">Add</Button>
         <Button type="back" onClick={(e) => {
          e.preventDefault()
          navigate(-1)}}

@@ -6,19 +6,19 @@ const BASE_URL = 'http://localhost:7000'
 type CitiesContextType = {
  cities: City[];
  isLoading: boolean;
- currentCity: City;
+ currentCity: City | null;
  getCity: (id: number) => void;
  createCity: (newCity: City) => City
+ deleteCity: (id: string) => void;
 }
 
 const CitiesContext = createContext<CitiesContextType | undefined>(undefined);
 
-function CitiesProvider({ children }: { children: City[] }) {
+function CitiesProvider({ children }: { children: React.ReactNode }) {
  const [cities, setCities] = useState<City[]>([]);
  const [isLoading, setIsLoading] = useState(false);
  const [currentCity, setCurrentCity] = useState({});
 
- 
  useEffect(function() {
   async function fetchCities() {
    try {
@@ -74,15 +74,32 @@ function CitiesProvider({ children }: { children: City[] }) {
   
   
  } catch(error) {
-  alert(`Error creating data: ${(error as Error).message}`)
+  alert(`Error creating city data: ${(error as Error).message}`)
  } finally {
   setIsLoading(false)
  }
 }
 
+// Delete a city
+async function deleteCity(id: string) {
+ try {
+  setIsLoading(true)
+  await fetch(`${BASE_URL}/cities/${id}`, {
+   method: "DELETE",
+  });
+
+  setCities(cities => cities.filter((city) => city.id !== id))
+  console.log('To DELETE?');
+} catch(error) {
+ alert(`Error deleting a city`)
+} finally {
+ setIsLoading(false)
+}
+}
+
 
   return (
-   <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity, createCity }}>
+   <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity, createCity, deleteCity }}>
     {children}
    </CitiesContext.Provider>
   )

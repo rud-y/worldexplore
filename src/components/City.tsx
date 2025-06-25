@@ -19,7 +19,6 @@ function City() {
 
  const { getCity, currentCity, isLoading } = useCities();
 
- 
  const [searchParams, setSearchParams] = useSearchParams();
  const lat = searchParams.get("lat");
  const lng = searchParams.get("lng");
