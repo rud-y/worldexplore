@@ -5,29 +5,37 @@ import { useEffect, useState } from 'react';
 import { useCities } from '../contexts/CitiesContext';
 import { useGeolocation } from '../hooks/useGeolocation';
 import Button from './Button';
-import { useUrlPosition } from '../hooks/useUrlPosition';
 
 export default function Map() {
+ const navigate = useNavigate();
  
  const { cities } = useCities();
  
- const[mapPosition, setMapPosition] = useState([60, 0.5])
+ const [mapPosition, setMapPosition] = useState([40, 20])
  const [searchParams] = useSearchParams();
  const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition }: {isLoading: boolean; position: GeolocationPosition | null; getPosition: () => void} = useGeolocation();
 
- const [ lat, lng ] = useUrlPosition();
+ 
+ const latParam = Number(searchParams.get('lat'));
+ const lngParam = Number(searchParams.get('lng'));
 
- // const lat = searchParams.get("lat");
- // const lng = searchParams.get("lng");
- 
- useEffect(function() {
-  if(lat & lng) setMapPosition([lat, lng]);
- }, [lat, lng]);
- 
+ const lat = !isNaN(latParam) ? Number(latParam) : null;
+ const lng = !isNaN(lngParam) ? Number(lngParam) : null;
+
+ useEffect(() => {
+  if (lat !== null && lng !== null) {
+    setMapPosition([lat, lng]);
+  } else if (geolocationPosition) {
+    setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+  }
+}, [lat, lng, geolocationPosition, setMapPosition]);
+
  
  return (
-  <div className={styles.mapContainer} onClick={() => {navigate("form")}}>
-    <Button type="position" onClick={getPosition}>{isLoadingPosition ? 'Loading . . .' : 'Use your geoposition'}</Button>
+  <div className={styles.mapContainer} onClick={() => { navigate("form") }}>
+    <Button type="position" onClick={getPosition}>{isLoadingPosition ? 'Loading . . .' : 'Use your geoposition'}
+    </Button>
+
     <MapContainer
       center={mapPosition}
       zoom={8}
@@ -38,20 +46,40 @@ export default function Map() {
        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
      />
 
-     {cities.map((city) => (
+     {/* {cities.map((city) => {
+      if(!city.position) return null;
+      return (
       <Marker position={[city.position.lat, city.position.lng]} key={city.id}>
        <Popup>
          <span>{city.emoji}</span> <span>{city.cityName}</span>
        </Popup>
-     </Marker>))}
-     <ChangeCenter position={[lat || 45, lng || 10] }/>
+     </Marker>)}
+      )
+     } */}
+    
+    {cities.map((city) => {
+     const lat = city?.position?.lat;
+     const lng = city?.position?.lng;
+
+     if (typeof lat !== 'number' || typeof lng !== 'number') return null;
+
+     return (
+       <Marker position={[lat, lng]} key={city.id}>
+         <Popup>
+           <span>{city.emoji}</span> <span>{city.cityName}</span>
+         </Popup>
+       </Marker>
+      );
+    })}
+
+     {lat !== null && lng !== null && <ChangeCenter position={[lat, lng]} />}
      <DetectClick />
     </MapContainer>
    </div>
  )
 }
 
-function ChangeCenter({ position }) {
+function ChangeCenter({ position }: { position: [number, number] }) {
  const map = useMap();
  map.setView(position);
 
@@ -62,9 +90,9 @@ function DetectClick() {
  const navigate = useNavigate();
 
  useMapEvents({
-  click: (e: Event) => 
+  click: (e) => 
    {
-    console.log('eee: ', e)
+    console.log('eee MAP CLICK::: ', e)
     navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`)
    }
  })

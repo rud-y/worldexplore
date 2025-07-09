@@ -24,7 +24,7 @@ function App() {
       <Route index element={<Homepage />} />
       <Route path="app" element={<AppLayout />} >
 
-       <Route index element={<Navigate replace to="cities/10"/>} />
+       <Route index element={<Navigate replace to="cities/1"/>} />
        {/* <Route path="cities" element={<CityList cities={cities} isLoading={isLoading}/>} /> */}
         <Route path="cities" element={<CityList />} />
 

@@ -35,6 +35,42 @@
         "lat": "49.46745471626306",
         "lng": "17.123908996582035"
       }
+    },
+    {
+      "id": "d429",
+      "cityName": "Aalborg",
+      "country": "Denmark",
+      "emoji": "🇩🇰",
+      "date": "2025-06-25T15:51:40.133Z",
+      "notes": "",
+      "position": {
+        "lat": "57.04297115765224",
+        "lng": "9.924774169921875"
+      }
+    },
+    {
+      "id": "1008",
+      "cityName": "Piacenza",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2025-06-25T15:54:58.565Z",
+      "notes": "spagetti",
+      "position": {
+        "lat": null,
+        "lng": null
+      }
+    },
+    {
+      "id": "9b65",
+      "cityName": "Edinburgh",
+      "country": "",
+      "emoji": null,
+      "date": "2025-07-09T12:06:18.849Z",
+      "notes": "Beautiful",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
     }
   ]
 }
