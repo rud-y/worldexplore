@@ -17,7 +17,7 @@ export default function Homepage() {
           of. Never forget your wonderful experience.
         </h3>
 
-        <Link to="/app" className="cta">Start tracking now</Link>
+        <Link to="/login" className="cta">Start tracking now</Link>
       </section>
     </main>
   );
