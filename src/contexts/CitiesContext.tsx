@@ -36,12 +36,12 @@ function reducer(state, action) {
     
    case 'city/created':
     return {
-     ...state, isLoading: false, cities: [...state.cities, action.payload]
+     ...state, isLoading: false, cities: [...state.cities, action.payload], currentCity: action.payload,
     }
 
    case 'city/deleted':
     return {
-     ...state, isLoading :false, cities: state.cities.filter((city: City) => city.id !== action.payload)
+     ...state, isLoading: false, cities: state.cities.filter((city: City) => city.id !== action.payload), currentCity: {},
     }
 
    case 'rejected':
@@ -75,6 +75,9 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
 
  // Fetch one city
  async function getCity(id: number) {
+  if(Number(id) === currentCity.id) return;
+  console.log('curentcityID.. ', Number(currentCity.id))
+  
   dispatch({type: 'loading'})
 
    try {

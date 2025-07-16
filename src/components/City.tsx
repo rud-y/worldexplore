@@ -23,8 +23,6 @@ function City() {
  const lat = searchParams.get("lat");
  const lng = searchParams.get("lng");
  
- console.log('useParams-id: ', id)
- 
  useEffect(function(){
   getCity(id);
  }, [id])
