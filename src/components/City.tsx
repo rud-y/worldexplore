@@ -20,14 +20,15 @@ function City() {
  const { getCity, currentCity, isLoading } = useCities();
 
  const [searchParams, setSearchParams] = useSearchParams();
- const lat = searchParams.get("lat");
- const lng = searchParams.get("lng");
+ const lat = Number(searchParams.get("lat"));
+ const lng = Number(searchParams.get("lng"));
  
- useEffect(function(){
+ useEffect(() => {
   getCity(id);
  }, [id])
  
- const { cityName, emoji, date, notes } = currentCity;
+ // const { cityName, emoji, date, notes } = currentCity;
+ const { cityName = "", emoji = "", date = "", notes = "" } = currentCity || {};
  
  if(isLoading) return <Spinner />
  
@@ -39,7 +40,6 @@ function City() {
  //  notes: "My favorite city so far!",
  // };
  
-
   // return (
   //  <>
   //  <h1>City: {id}</h1>

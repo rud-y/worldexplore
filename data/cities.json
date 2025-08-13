@@ -25,51 +25,39 @@
       "id": "98443197"
     },
     {
-      "id": "af19",
-      "cityName": "Prostejov",
-      "country": "Czechia",
-      "emoji": "🇨🇿",
-      "date": "2025-06-25T11:38:28.956Z",
-      "notes": "Nove sako.",
-      "position": {
-        "lat": "49.46745471626306",
-        "lng": "17.123908996582035"
-      }
-    },
-    {
-      "id": "d429",
-      "cityName": "Aalborg",
-      "country": "Denmark",
-      "emoji": "🇩🇰",
-      "date": "2025-06-25T15:51:40.133Z",
+      "id": "7849",
+      "cityName": "Panazol",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-08-13T14:18:53.514Z",
       "notes": "",
       "position": {
-        "lat": "57.04297115765224",
-        "lng": "9.924774169921875"
+        "lat": 45.832626782661556,
+        "lng": 1.2844623955271663
       }
     },
     {
-      "id": "1008",
-      "cityName": "Piacenza",
-      "country": "Italy",
-      "emoji": "🇮🇹",
-      "date": "2025-06-25T15:54:58.565Z",
-      "notes": "spagetti",
+      "id": "1466",
+      "cityName": "Teteghem-Coudekerque-Village",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-08-13T14:26:49.252Z",
+      "notes": "",
       "position": {
-        "lat": null,
-        "lng": null
+        "lat": 51.031031114144035,
+        "lng": 2.421437573905903
       }
     },
     {
-      "id": "9b65",
-      "cityName": "Edinburgh",
-      "country": "",
-      "emoji": null,
-      "date": "2025-07-09T12:06:18.849Z",
-      "notes": "Beautiful",
+      "id": "7c9c",
+      "cityName": "Bordeaux",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-08-13T14:34:52.177Z",
+      "notes": "Red one! Lecker!",
       "position": {
-        "lat": 0,
-        "lng": 0
+        "lat": 44.84515927771909,
+        "lng": -0.5674755312255942
       }
     }
   ]
