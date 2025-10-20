@@ -19,6 +19,9 @@
   margin: 8rem auto;
 }
 
+.form input {
+ background-color: var(--color-light--1);
+}
 .row {
   display: flex;
   flex-direction: column;

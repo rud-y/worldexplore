@@ -27,15 +27,20 @@
   font-size: 2.8rem;
 }
 
+.form input, .form textarea {
+ background-color: var(--color-light--1);
+}
+
 .form.loading {
   opacity: 0.3;
 }
 
 .form.loading button {
   pointer-events: none;
-  background-color: var(--color-light--1);
+  /* background-color: var(--color-light--2); */
+  background-color: red;
   border: 1px solid var(--color-light--1);
-  color: var(--color-dark--0);
+  color: var(--color-dark--2);
 }
 
 :global(.react-datepicker) {

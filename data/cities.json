@@ -59,6 +59,54 @@
         "lat": 44.84515927771909,
         "lng": -0.5674755312255942
       }
+    },
+    {
+      "id": "f617",
+      "cityName": "Limerick",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "2025-10-20T06:21:49.610Z",
+      "notes": "Amazing Ireland",
+      "position": {
+        "lat": 52.653894781788644,
+        "lng": -8.63124502659896
+      }
+    },
+    {
+      "id": "2be8",
+      "cityName": "",
+      "country": "",
+      "emoji": null,
+      "date": "2025-10-20T07:57:59.644Z",
+      "notes": "",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
+    },
+    {
+      "id": "8ad2",
+      "cityName": "Trnava",
+      "country": "",
+      "emoji": null,
+      "date": "2025-10-20T08:01:55.468Z",
+      "notes": "Nice.",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
+    },
+    {
+      "id": "fe31",
+      "cityName": "",
+      "country": "",
+      "emoji": null,
+      "date": "2025-10-20T08:11:29.804Z",
+      "notes": "",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
     }
   ]
 }

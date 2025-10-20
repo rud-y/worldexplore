@@ -22,6 +22,7 @@
 
 .user button {
   background-color: var(--color-dark--2);
+  /* background-color: pink; */
   border-radius: 7px;
   border: none;
   padding: 0.6rem 1.2rem;

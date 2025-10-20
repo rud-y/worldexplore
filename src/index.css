@@ -4,15 +4,18 @@
 
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
-  --color-brand--1: #1ea10c;
-  --color-brand--2: #4675a0;
+  --color-brand--1: #0e992c;
+  --color-brand--2: #1d201e;
 
-  --color-dark--0: #49627c;
-  --color-dark--1: #23292e;
-  --color-dark--2: #424b42;
-  --color-light--1: #aaa;
-  --color-light--2: rgb(150, 152, 153);
-  --color-light--3: #d6dee0;
+  --color-dark--0: #131213;
+  --color-dark--1: #302e2e;
+  --color-dark--2: #1d4289;
+  /* --color-dark--1: #df1818;
+  --color-dark--2: #cae62b; */
+
+  --color-light--1: #e0dddd;
+  --color-light--2: #be84a3;
+  --color-light--3: #5d3754;
 }
 
 * {
@@ -59,7 +62,7 @@ input:focus {
 .cta:visited {
   display: inline-block;
   background-color: var(--color-brand--2);
-  color: var(--color-dark--1);
+  color: var(--color-light--1);
   text-transform: uppercase;
   text-decoration: none;
   font-size: 1.6rem;
