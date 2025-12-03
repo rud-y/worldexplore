@@ -1,11 +1,17 @@
 .app {
-  height: 100vh;
-  padding: 2.4rem;
-  overscroll-behavior-y: none;
+  /* height: 100vh; */
   display: flex;
+  overscroll-behavior-y:contain;
   position: relative;
 }
 
 .nav {
  background-color: antiquewhite;
+}
+
+@media screen and (max-width: 600px) {
+ .app {
+  display: flex;
+  flex-flow: column nowrap;
+ }
 }

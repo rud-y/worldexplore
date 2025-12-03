@@ -4,18 +4,19 @@
 
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
-  --color-brand--1: #0e992c;
-  --color-brand--2: #1d201e;
+  --color-brand--1: #1259dd;
+  --color-brand--2: #1d4289;
 
   --color-dark--0: #131213;
-  --color-dark--1: #302e2e;
+  --color-dark--1: #1e1e1f;
   --color-dark--2: #1d4289;
+  --color-dark--3: #173469;
   /* --color-dark--1: #df1818;
   --color-dark--2: #cae62b; */
 
-  --color-light--1: #e0dddd;
+  --color-light--1: #cfcbce;
   --color-light--2: #be84a3;
-  --color-light--3: #5d3754;
+  --color-light--3: #c576a0;
 }
 
 * {
@@ -53,7 +54,7 @@ textarea {
   transition: all 0.2s;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
   background-color: #fff;
 }
@@ -62,13 +63,17 @@ input:focus {
 .cta:visited {
   display: inline-block;
   background-color: var(--color-brand--2);
-  color: var(--color-light--1);
+  color: var(--color-light--2);
   text-transform: uppercase;
   text-decoration: none;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 800;
   padding: 1rem 3rem;
   border-radius: 5px;
+}
+
+.cta:hover {
+ background-color: var(--color-dark--3);
 }
 
 /*

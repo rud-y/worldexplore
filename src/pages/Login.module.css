@@ -6,8 +6,9 @@
 }
 
 .form {
-  background-color: var(--color-dark--2);
+  background-color: var(--color-light--2);
   border-radius: 7px;
+  color: var(--color-dark--2);
   padding: 2rem 3rem;
   width: 100%;
   display: flex;

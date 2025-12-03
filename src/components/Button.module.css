@@ -1,15 +1,19 @@
 .btn {
   /* color: inherit; */
-  color: var(--color-dark--2);
-  background-color: var(--color-light--2);
+  color: var(--color-light--2);
+  background-color: var(--color-dark--2);
   text-transform: uppercase;
   padding: 0.8rem 1.6rem;
   font-family: inherit;
   font-size: 1.5rem;
-  font-weight: bolder;
+  font-weight: 800;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.btn:hover {
+ background-color: var(--color-dark--3);
 }
 
 .primary {

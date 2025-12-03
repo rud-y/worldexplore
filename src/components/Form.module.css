@@ -1,5 +1,6 @@
 .form {
-  background-color: var(--color-dark--2);
+  background-color: var(--color-light--2);
+  color: var(--color-dark--2);
   border-radius: 7px;
   padding: 2rem 3rem;
   width: 100%;
@@ -37,8 +38,7 @@
 
 .form.loading button {
   pointer-events: none;
-  /* background-color: var(--color-light--2); */
-  background-color: red;
+  background-color: var(--color-light--2);
   border: 1px solid var(--color-light--1);
   color: var(--color-dark--2);
 }
