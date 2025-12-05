@@ -1,123 +1,39 @@
 {
   "cities": [
     {
-      "cityName": "Madrid",
+      "id": "7075",
+      "cityName": "Yuncos",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "date": "2025-12-05T17:03:13.463Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "f617",
-      "cityName": "Limerick",
-      "country": "Ireland",
-      "emoji": "🇮🇪",
-      "date": "2025-10-20T06:21:49.610Z",
-      "notes": "Amazing Ireland",
-      "position": {
-        "lat": 52.653894781788644,
-        "lng": -8.63124502659896
+        "lat": 40.08726529057087,
+        "lng": -3.8732140272275744
       }
     },
     {
-      "id": "ca4d",
-      "cityName": "Douentza",
-      "country": "Mali",
-      "emoji": "🇲🇱",
-      "date": "2025-10-21T15:19:05.191Z",
-      "notes": "Amazing.",
-      "position": {
-        "lat": 15.241789855961722,
-        "lng": -1.9110364136266036
-      }
-    },
-    {
-      "id": "1a1d",
-      "cityName": "N'Djamena",
-      "country": "Chad",
-      "emoji": "🇹🇩",
-      "date": "2025-10-22T11:30:11.190Z",
-      "notes": "Hot",
-      "position": {
-        "lat": 12.106135154846672,
-        "lng": 15.05741021203606
-      }
-    },
-    {
-      "id": "313f",
-      "cityName": "Tichit",
-      "country": "Mauritania",
-      "emoji": "🇲🇷",
-      "date": "2025-10-22T11:30:44.150Z",
+      "id": "3757",
+      "cityName": "Ourem",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-12-05T17:03:45.618Z",
       "notes": "",
       "position": {
-        "lat": 18.409030066452747,
-        "lng": -9.49154381473635
+        "lat": 39.62907709525071,
+        "lng": -8.665177811636386
       }
     },
     {
-      "id": "ca53",
-      "cityName": "Jihlava",
-      "country": "Czechia",
-      "emoji": "🇨🇿",
-      "date": "2025-10-22T11:35:08.474Z",
-      "notes": "",
+      "id": "9b48",
+      "cityName": "Esposende",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-12-05T17:04:33.459Z",
+      "notes": "Lovely.",
       "position": {
-        "lat": 49.39175913328096,
-        "lng": 15.592144548855554
-      }
-    },
-    {
-      "id": "eebc",
-      "cityName": "Municipiul Balţi",
-      "country": "Moldova (the Republic of)",
-      "emoji": "🇲🇩",
-      "date": "2025-10-22T18:49:33.151Z",
-      "notes": "",
-      "position": {
-        "lat": 47.7577909789764,
-        "lng": 27.9392679190612
-      }
-    },
-    {
-      "id": "05fe",
-      "cityName": "Beni Enzar",
-      "country": "Morocco",
-      "emoji": "🇲🇦",
-      "date": "2025-10-22T18:57:22.602Z",
-      "notes": "",
-      "position": {
-        "lat": 35.250111421250885,
-        "lng": -2.944575139775388
-      }
-    },
-    {
-      "id": "f10f",
-      "cityName": "Glasgow",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "2025-12-03T16:36:35.205Z",
-      "notes": "",
-      "position": {
-        "lat": 55.862307379768225,
-        "lng": -4.254245225244243
+        "lat": 41.53158361174009,
+        "lng": -8.777007793227751
       }
     }
   ]

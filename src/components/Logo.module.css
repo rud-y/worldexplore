@@ -1,3 +1,15 @@
 .logo {
-  height: 5.2rem;
+ height: 4rem;
+ margin-bottom: 3rem;
+ padding: 0;
+ text-decoration: none;
+
+ .world {
+  color: var(--color-dark--2);
+ }
+ 
+ .explore {
+  color: var(--color-light--2);
+ }
 }
+

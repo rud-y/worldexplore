@@ -7,15 +7,13 @@ export default function Homepage() {
     <main className={styles.homepage}>
      <PageNav />
       <section>
-        <h2>
+        <h1>
           You travel the world.
           <br />
-          WorldExplore keeps track of your adventures.
+        </h1>
+        <h2>
+          A world map that tracks your footsteps into every city. Never forget your experience.
         </h2>
-        <h3>
-          A world map that tracks your footsteps into every city you can think
-          of. Never forget your wonderful experience.
-        </h3>
 
         <Link to="/login" className="cta">Start tracking now</Link>
       </section>

@@ -2,8 +2,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--color-dark--3);
-  padding: 0.4rem 0.4rem;
+  background-color: var(--color-dark--2);
+  padding: 0.2rem 0.1rem;
   z-index: 999;
   font-size: 1.6rem;
   font-weight: 900;
