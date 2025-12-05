@@ -1,7 +1,7 @@
 .app {
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
-  overscroll-behavior-y:contain;
+  overscroll-behavior-y: contain;
   position: relative;
 }
 

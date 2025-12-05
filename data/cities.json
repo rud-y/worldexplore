@@ -25,30 +25,6 @@
       "id": "98443197"
     },
     {
-      "id": "7849",
-      "cityName": "Panazol",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2025-08-13T14:18:53.514Z",
-      "notes": "",
-      "position": {
-        "lat": 45.832626782661556,
-        "lng": 1.2844623955271663
-      }
-    },
-    {
-      "id": "1466",
-      "cityName": "Teteghem-Coudekerque-Village",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2025-08-13T14:26:49.252Z",
-      "notes": "",
-      "position": {
-        "lat": 51.031031114144035,
-        "lng": 2.421437573905903
-      }
-    },
-    {
       "id": "f617",
       "cityName": "Limerick",
       "country": "Ireland",
@@ -58,18 +34,6 @@
       "position": {
         "lat": 52.653894781788644,
         "lng": -8.63124502659896
-      }
-    },
-    {
-      "id": "8ad2",
-      "cityName": "Trnava",
-      "country": "",
-      "emoji": null,
-      "date": "2025-10-20T08:01:55.468Z",
-      "notes": "Nice.",
-      "position": {
-        "lat": 0,
-        "lng": 0
       }
     },
     {
@@ -85,30 +49,6 @@
       }
     },
     {
-      "id": "5a95",
-      "cityName": "",
-      "country": "",
-      "emoji": null,
-      "date": "2025-10-22T08:38:13.819Z",
-      "notes": "",
-      "position": {
-        "lat": 0,
-        "lng": 0
-      }
-    },
-    {
-      "id": "e654",
-      "cityName": "Linkoping",
-      "country": "Sweden",
-      "emoji": "🇸🇪",
-      "date": "2025-10-22T09:32:42.389Z",
-      "notes": "Beautiful forest walks",
-      "position": {
-        "lat": 58.405848838390526,
-        "lng": 15.619344094678118
-      }
-    },
-    {
       "id": "1a1d",
       "cityName": "N'Djamena",
       "country": "Chad",
@@ -118,18 +58,6 @@
       "position": {
         "lat": 12.106135154846672,
         "lng": 15.05741021203606
-      }
-    },
-    {
-      "id": "3f02",
-      "cityName": "Gourma Rharous",
-      "country": "Mali",
-      "emoji": "🇲🇱",
-      "date": "2025-10-22T11:30:27.441Z",
-      "notes": "",
-      "position": {
-        "lat": 16.843852880008512,
-        "lng": -1.904373504198054
       }
     },
     {
@@ -154,18 +82,6 @@
       "position": {
         "lat": 49.39175913328096,
         "lng": 15.592144548855554
-      }
-    },
-    {
-      "id": "8d41",
-      "cityName": "Edinburgh",
-      "country": "",
-      "emoji": null,
-      "date": "2025-10-01T15:37:37.000Z",
-      "notes": "Lovely.",
-      "position": {
-        "lat": 0,
-        "lng": 0
       }
     },
     {
@@ -202,18 +118,6 @@
       "position": {
         "lat": 55.862307379768225,
         "lng": -4.254245225244243
-      }
-    },
-    {
-      "id": "0514",
-      "cityName": "Edinburgh",
-      "country": "",
-      "emoji": null,
-      "date": "2025-12-03T16:37:10.517Z",
-      "notes": "Beautiful.",
-      "position": {
-        "lat": 0,
-        "lng": 0
       }
     }
   ]

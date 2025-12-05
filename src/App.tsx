@@ -33,7 +33,7 @@ function App() {
                   </ProtectedRoute>
                 }
               >
-                <Route index element={<Navigate replace to="cities/1" />} />
+                <Route index element={<Navigate replace to="cities" />} />
                 {/* <Route path="cities" element={<CityList cities={cities} isLoading={isLoading}/>} /> */}
                 <Route path="cities" element={<CityList />} />
 
