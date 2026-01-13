@@ -1,5 +1,4 @@
 .btn {
-  /* color: inherit; */
   color: var(--color-light--2);
   background-color: var(--color-dark--2);
   text-transform: uppercase;

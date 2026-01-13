@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "9b48",
-      "cityName": "Esposende",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2025-12-05T17:04:33.459Z",
-      "notes": "Lovely.",
-      "position": {
-        "lat": 41.53158361174009,
-        "lng": -8.777007793227751
-      }
-    },
-    {
       "id": "8a8d",
       "cityName": "Brussels",
       "country": "Belgium",
@@ -22,6 +10,18 @@
       "position": {
         "lat": 50.84583876895451,
         "lng": 4.344296021350754
+      }
+    },
+    {
+      "id": "8db8",
+      "cityName": "Aalborg",
+      "country": "",
+      "emoji": null,
+      "date": "2026-01-01T09:48:25.000Z",
+      "notes": "Lovely cinnamon danish.",
+      "position": {
+        "lat": 0,
+        "lng": 0
       }
     }
   ]

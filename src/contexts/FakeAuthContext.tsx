@@ -56,7 +56,7 @@ function AuthProvider({children}) {
 function useAuth() {
  const context = useContext(AuthContext)
 
- if(context === undefined) throw new Error('AuthContext was used outside of AuthProvider')
+ if(context === null) throw new Error('AuthContext was used outside of AuthProvider')
 
   return context;
 }

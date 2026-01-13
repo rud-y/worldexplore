@@ -1,6 +1,7 @@
  .login {
    margin: 0.2rem;
-   padding: 0.4rem 1rem;
+   /* padding: 0.4rem 1rem; */
+   padding: 1.8rem 3rem;
    background-color: var(--color-dark--1);
    min-height: calc(100vh - 5rem);
  }

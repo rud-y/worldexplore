@@ -8,20 +8,21 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .nav a:link,
 .nav a:visited {
-  text-decoration: none;
-  color: var(--color-light--1);
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 600;
+ color: var(--color-light--1);
+ font-size: 1.5rem;
+ font-weight: 800;
+ line-height: 3rem;
+ text-transform: uppercase;
+ text-decoration: none;
 }
 
 /* CSS Modules feature */
-.nav a:global(.active) {
+/* .nav a:global(.active) {
   color: var(--color-light--3);
 }
 
@@ -31,4 +32,4 @@ a.ctaLink:visited {
   color: var(--color-dark--1);
   padding: 0.8rem 2rem;
   border-radius: 7px;
-}
+} */
