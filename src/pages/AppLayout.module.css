@@ -1,6 +1,7 @@
 .app {
-  height: 100vh;
-  display: flex;
+  height: calc(100vh - 4.8rem);
+  display: grid;
+  grid-template-columns: auto auto;
   overscroll-behavior-y: contain;
   position: relative;
 }
@@ -9,9 +10,9 @@
  background-color: antiquewhite;
 }
 
-@media screen and (max-width: 680px) {
- .app {
-  display: flex;
-  flex-flow: column nowrap;
+@media (max-width: 680px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(300px, 1fr);
+  }
  }
-}
