@@ -275,6 +275,42 @@
         "lat": -0.04806517990925067,
         "lng": 10.129394531250002
       }
+    },
+    {
+      "id": "3c6d",
+      "cityName": "Cagliari",
+      "country": "",
+      "emoji": null,
+      "date": "2026-01-20T08:44:44.466Z",
+      "notes": "Exploration.",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
+    },
+    {
+      "id": "5d04",
+      "cityName": "Casaluce",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2026-01-20T08:45:53.307Z",
+      "notes": "Italia!",
+      "position": {
+        "lat": 41.00803825862586,
+        "lng": 14.19639587402344
+      }
+    },
+    {
+      "id": "8a96",
+      "cityName": "",
+      "country": "",
+      "emoji": null,
+      "date": "2026-01-20T08:57:26.262Z",
+      "notes": "",
+      "position": {
+        "lat": 0,
+        "lng": 0
+      }
     }
   ]
 }

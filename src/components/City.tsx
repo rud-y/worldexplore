@@ -1,5 +1,5 @@
 import styles from "./City.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
@@ -19,13 +19,21 @@ function City() {
 
  const { getCity, currentCity, isLoading } = useCities();
 
- const [searchParams, setSearchParams] = useSearchParams();
- const lat = Number(searchParams.get("lat"));
- const lng = Number(searchParams.get("lng"));
+ const [searchParams, _setSearchParams] = useSearchParams();
+
+ const latParam = searchParams.get("lat")
+ const lngParam = searchParams.get("lng")
+
+ const lat =  latParam ? Number(latParam) : null;
+ const lng = lngParam ? Number(lngParam) : null;
  
  useEffect(() => {
-  getCity(id);
- }, [id])
+  if (!id) return;
+  if ((lat === null || lng === null) || (lat === 0 || lng === 0)) return;
+
+  const numId = Number(id);
+  getCity(numId);
+ }, [lat, lng, id, getCity])
  
  // const { cityName, emoji, date, notes } = currentCity;
  const { cityName = "", emoji = "", date = "", notes = "" } = currentCity || {};

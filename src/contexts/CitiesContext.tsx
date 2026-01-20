@@ -104,7 +104,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
 
    if(!response.ok) throw new Error("Could not create a new city data");
 
-   const newCityData = await response.json() as City;
+   const newCityData = await response.json() as typeof City;
    dispatch({ type: 'city/created', payload: newCityData });
   
   } catch(error) {

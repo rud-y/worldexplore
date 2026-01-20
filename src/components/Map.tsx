@@ -10,7 +10,7 @@ export default function Map() {
  
  const { cities } = useCities();
  
- const [mapPosition, setMapPosition] = useState([0, 0])
+ const [mapPosition, setMapPosition] = useState([85, 1])
  const [searchParams] = useSearchParams();
  const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition }: { isLoading: boolean; position: GeolocationPosition | null; getPosition: () => void} = useGeolocation();
 
@@ -20,6 +20,7 @@ export default function Map() {
  const lat = !isNaN(latParam) ? Number(latParam) : null;
  const lng = !isNaN(lngParam) ? Number(lngParam) : null;
 
+ console.log('lat and lng :: ', lat, lng)
  const navigate = useNavigate();
 
  useEffect(() => {

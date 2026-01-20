@@ -11,7 +11,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
 
-export function convertToEmoji(countryCode) {
+export function convertToEmoji(countryCode: string) {
   const codePoints = countryCode
     .toUpperCase()
     .split("")
