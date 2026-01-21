@@ -301,15 +301,51 @@
       }
     },
     {
-      "id": "8a96",
-      "cityName": "",
-      "country": "",
-      "emoji": null,
-      "date": "2026-01-20T08:57:26.262Z",
+      "id": "a52a",
+      "cityName": "Canillo",
+      "country": "Andorra",
+      "emoji": "🇦🇩",
+      "date": "2026-01-20T16:00:27.353Z",
       "notes": "",
       "position": {
-        "lat": 0,
-        "lng": 0
+        "lat": 42.558137548151,
+        "lng": 1.6002248088030238
+      }
+    },
+    {
+      "id": "70ab",
+      "cityName": "Ibiza",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-01-21T11:57:17.305Z",
+      "notes": "",
+      "position": {
+        "lat": 38.910804525446714,
+        "lng": 1.4247894287109375
+      }
+    },
+    {
+      "id": "4e4b",
+      "cityName": "Mambah-Kaba",
+      "country": "Liberia",
+      "emoji": "🇱🇷",
+      "date": "2026-01-21T12:37:07.027Z",
+      "notes": "",
+      "position": {
+        "lat": 6.2361249830392875,
+        "lng": -10.358734130859377
+      }
+    },
+    {
+      "id": "0967",
+      "cityName": "Sauca",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-01-21T15:04:07.315Z",
+      "notes": "cool!",
+      "position": {
+        "lat": 41.027571415339786,
+        "lng": -2.5241088867187504
       }
     }
   ]

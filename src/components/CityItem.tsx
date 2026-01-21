@@ -1,21 +1,21 @@
 import styles from './CityItem.module.css'
 import { Link } from 'react-router-dom'
-// import City from './City'
+import { City } from './City'
 import { useCities } from '../contexts/CitiesContext';
 import React from 'react';
 
+//  type Position = {
+//  lat: number;
+//  lng: number;
+// }
+
 export interface CityItemProps {
- id: string;
- position: { lat: number, lng: number};
- date: string | Date;
- cityName: string;
- emoji: string;
- notes?: string;
+  city: City;
 }
 
 
 
- const formatDate = (date?: string | Date) => {
+ const formatDate = (date?: string | Date | null) => {
    if (!date) return "Unknown Date";
    const d = new Date(date);
    if (isNaN(d.getTime())) return "Unknown Date";
@@ -28,16 +28,18 @@ export interface CityItemProps {
    }).format(d);
  };
   
-  export default function CityItem({ id, position, date, cityName, emoji, notes }: CityItemProps) {
+  export default function CityItem({ city }: CityItemProps) {
+    const { id, date, position, emoji, cityName } = city;
     const { deleteCity } = useCities();
     
     function handleDeleteClick(e: React.MouseEvent<HTMLButtonElement>) {
      e.preventDefault();
+     console.log('POSITION LAT---  ', position?.lat)
      deleteCity(id);
     }
     
     if (!position) return null;
-    
+
     const formattedDate = formatDate(date);
 
     return (

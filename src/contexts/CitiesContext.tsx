@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import City from '../components/City';
+import { City } from '../components/City';
 
 const BASE_URL = 'http://localhost:7000'
 
@@ -74,8 +74,8 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
  }, []);
 
  // Fetch one city
- async function getCity(id: number) {
-  if(Number(id) === currentCity.id) return;
+ async function getCity(id: string) {
+  if(id === currentCity.id) return;
   dispatch({type: 'loading'})
 
    try {

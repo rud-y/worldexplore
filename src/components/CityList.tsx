@@ -1,8 +1,7 @@
 import styles from './City.module.css'
 import Spinner from './Spinner'
+import type { City } from './City'
 import CityItem from './CityItem'
-// import { City } from './CityItem'
-import CityItemProps from './CityItem'
 import Message from './Message'
 import { useCities } from '../contexts/CitiesContext'
 
@@ -16,7 +15,7 @@ export default function CityList() {
 
  return (
    <ul className={styles.cities}>
-     {cities.map((city: typeof CityItemProps) => (
+     {cities.map((city: City) => (
        <CityItem city={city} key={city.id} />
      ))}
    </ul>
