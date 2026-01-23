@@ -5,7 +5,7 @@ import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
 
 
-const formatDate = (date: Date) =>
+const formatDate = (date: Date | string) =>
   new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "long",
@@ -24,6 +24,7 @@ const formatDate = (date: Date) =>
     cityName: string;
     emoji?: string;
     notes?: string;
+    country: string;
   };
 
    
@@ -53,7 +54,7 @@ function City() {
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date || null)}</p>
+        <p>{formatDate(date)}</p>
       </div>
 
       {notes && (

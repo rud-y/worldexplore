@@ -12,10 +12,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
 
 export function convertToEmoji(countryCode: string) {
+ if (countryCode.length !== 2) return "";
+
   const codePoints = countryCode
     .toUpperCase()
     .split("")
-    .map((char) => 127397 + char.charCodeAt());
+    .map((char) => 127397 + char.charCodeAt(0));
   return String.fromCodePoint(...codePoints);
 }
 
@@ -28,11 +30,11 @@ function Form() {
  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
  const [geocodingError, setGeocodingError] = useState("")
  const [cityName, setCityName] = useState("");
- const [emoji, setEmoji] = useState(null);
+ const [emoji, setEmoji] = useState<string | null>(null);
  const [country, setCountry] = useState("");
  const [date, setDate] = useState(new Date());
  const [notes, setNotes] = useState("");
- const [isLoading, setIsLoading] = useState(false)
+ const [isLoading, _setIsLoading] = useState(false)
 
 
  useEffect(() => {

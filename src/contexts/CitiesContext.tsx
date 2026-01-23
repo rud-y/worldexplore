@@ -7,7 +7,7 @@ type CitiesContextType = {
  cities: City[];
  isLoading: boolean;
  currentCity: City | null;
- getCity: (id: number) => void;
+ getCity: (id: string) => void;
  createCity: (newCity: City) => City
  deleteCity: (id: string) => void;
 }

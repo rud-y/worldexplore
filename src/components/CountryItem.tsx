@@ -1,7 +1,7 @@
 import styles from "./CountryItem.module.css";
 
 export interface Country {
- emoji: string,
+ emoji?: string,
  country: string,
 }
 

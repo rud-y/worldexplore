@@ -3,17 +3,9 @@ import { Link } from 'react-router-dom'
 import { City } from './City'
 import { useCities } from '../contexts/CitiesContext';
 import React from 'react';
-
-//  type Position = {
-//  lat: number;
-//  lng: number;
-// }
-
 export interface CityItemProps {
   city: City;
 }
-
-
 
  const formatDate = (date?: string | Date | null) => {
    if (!date) return "Unknown Date";
