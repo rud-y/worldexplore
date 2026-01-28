@@ -13,7 +13,7 @@ import Spinner from "./Spinner";
 //     weekday: "long",
 //   }).format(new Date(date));
 
-const formatDate = (date?: string | Date | null) => {
+export const formatDate = (date?: string | Date | null) => {
   if (!date) return "Unknown date";
 
   const d = new Date(date);
@@ -36,8 +36,8 @@ const formatDate = (date?: string | Date | null) => {
       lat: number;
       lng: number;
     };
-    // date?: string | Date;
-    date?: string;
+    date?: string | Date;
+    // date?: string;
     cityName: string;
     emoji?: string | null;
     notes?: string;

@@ -37,222 +37,6 @@
       }
     },
     {
-      "id": "acf3",
-      "cityName": "Kjosarhreppur",
-      "country": "Iceland",
-      "emoji": "🇮🇸",
-      "date": "2026-01-14T17:05:03.166Z",
-      "notes": "So cold.",
-      "position": {
-        "lat": 64.30182213914463,
-        "lng": -21.369777566894218
-      }
-    },
-    {
-      "id": "a254",
-      "cityName": "Tanguieta",
-      "country": "Benin",
-      "emoji": "🇧🇯",
-      "date": "2026-01-14T17:32:50.597Z",
-      "notes": "",
-      "position": {
-        "lat": 11.2982654034687,
-        "lng": 1.7578125000000002
-      }
-    },
-    {
-      "id": "8e40",
-      "cityName": "In Guezzam",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2026-01-14T17:33:20.997Z",
-      "notes": "",
-      "position": {
-        "lat": 20.330833207009793,
-        "lng": 4.394531250000001
-      }
-    },
-    {
-      "id": "1b06",
-      "cityName": "Seme Kpodji",
-      "country": "Benin",
-      "emoji": "🇧🇯",
-      "date": "2026-01-14T18:02:48.139Z",
-      "notes": "",
-      "position": {
-        "lat": 6.40457330596866,
-        "lng": 2.5507129126692982
-      }
-    },
-    {
-      "id": "c8a7",
-      "cityName": "Douentza",
-      "country": "Mali",
-      "emoji": "🇲🇱",
-      "date": "2026-01-14T18:04:55.356Z",
-      "notes": "Alzirsko, wow.",
-      "position": {
-        "lat": 14.944784875088372,
-        "lng": -1.876645011697853
-      }
-    },
-    {
-      "id": "6a12",
-      "cityName": "Kpeve",
-      "country": "Ghana",
-      "emoji": "🇬🇭",
-      "date": "2026-01-14T18:28:13.426Z",
-      "notes": "",
-      "position": {
-        "lat": 6.493735667455812,
-        "lng": 0.19775390625000003
-      }
-    },
-    {
-      "id": "77c2",
-      "cityName": "Say",
-      "country": "Niger (the)",
-      "emoji": "🇳🇪",
-      "date": "2026-01-14T18:36:18.037Z",
-      "notes": "",
-      "position": {
-        "lat": 13.368905782565763,
-        "lng": 2.106891855850659
-      }
-    },
-    {
-      "id": "a932",
-      "cityName": "Kaouara",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2026-01-14T18:36:21.097Z",
-      "notes": "",
-      "position": {
-        "lat": 10.145139614771075,
-        "lng": -5.146627327305263
-      }
-    },
-    {
-      "id": "3b16",
-      "cityName": "Okrouyo",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2026-01-14T18:36:24.056Z",
-      "notes": "",
-      "position": {
-        "lat": 5.812229124504128,
-        "lng": -6.379638697961184
-      }
-    },
-    {
-      "id": "a24c",
-      "cityName": "Saioua",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2026-01-14T18:36:28.056Z",
-      "notes": "",
-      "position": {
-        "lat": 6.490795287065369,
-        "lng": -6.418290601376342
-      }
-    },
-    {
-      "id": "74f9",
-      "cityName": "Dabola",
-      "country": "Guinea",
-      "emoji": "🇬🇳",
-      "date": "2026-01-14T18:36:32.720Z",
-      "notes": "",
-      "position": {
-        "lat": 10.573098376646936,
-        "lng": -11.034808521126056
-      }
-    },
-    {
-      "id": "00ff",
-      "cityName": "Dabou",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2026-01-14T18:36:48.273Z",
-      "notes": "",
-      "position": {
-        "lat": 5.288055401388757,
-        "lng": -4.489067396377311
-      }
-    },
-    {
-      "id": "7f9d",
-      "cityName": "Tichit",
-      "country": "Mauritania",
-      "emoji": "🇲🇷",
-      "date": "2026-01-14T18:37:06.687Z",
-      "notes": "",
-      "position": {
-        "lat": 18.665878757494678,
-        "lng": -8.728646108107842
-      }
-    },
-    {
-      "id": "2c61",
-      "cityName": "Doke",
-      "country": "Cote d'Ivoire",
-      "emoji": "🇨🇮",
-      "date": "2026-01-14T18:40:08.521Z",
-      "notes": "",
-      "position": {
-        "lat": 6.668699578220198,
-        "lng": -8.129882812500002
-      }
-    },
-    {
-      "id": "432d",
-      "cityName": "Yoko",
-      "country": "Cameroon",
-      "emoji": "🇨🇲",
-      "date": "2026-01-14T18:40:12.665Z",
-      "notes": "",
-      "position": {
-        "lat": 5.50869010090821,
-        "lng": 13.0078125
-      }
-    },
-    {
-      "id": "e91f",
-      "cityName": "Tafawa Balewa",
-      "country": "Nigeria",
-      "emoji": "🇳🇬",
-      "date": "2026-01-14T18:40:16.048Z",
-      "notes": "",
-      "position": {
-        "lat": 9.665738395188692,
-        "lng": 9.975585937500002
-      }
-    },
-    {
-      "id": "c764",
-      "cityName": "Bimbo",
-      "country": "Central African Republic (the)",
-      "emoji": "🇨🇫",
-      "date": "2026-01-14T18:40:20.986Z",
-      "notes": "",
-      "position": {
-        "lat": 4.290608551578638,
-        "lng": 18.522949218750004
-      }
-    },
-    {
-      "id": "7fe7",
-      "cityName": "Etche",
-      "country": "Nigeria",
-      "emoji": "🇳🇬",
-      "date": "2026-01-14T18:40:26.616Z",
-      "notes": "",
-      "position": {
-        "lat": 5.001342254601998,
-        "lng": 7.097167968750001
-      }
-    },
-    {
       "id": "85d6",
       "cityName": "Oyem",
       "country": "Gabon",
@@ -262,30 +46,6 @@
       "position": {
         "lat": 0.9087372277666199,
         "lng": 10.634765625
-      }
-    },
-    {
-      "id": "183c",
-      "cityName": "Kango",
-      "country": "Gabon",
-      "emoji": "🇬🇦",
-      "date": "2026-01-14T18:40:35.328Z",
-      "notes": "",
-      "position": {
-        "lat": -0.04806517990925067,
-        "lng": 10.129394531250002
-      }
-    },
-    {
-      "id": "3c6d",
-      "cityName": "Cagliari",
-      "country": "",
-      "emoji": null,
-      "date": "2026-01-20T08:44:44.466Z",
-      "notes": "Exploration.",
-      "position": {
-        "lat": 0,
-        "lng": 0
       }
     },
     {
@@ -301,18 +61,6 @@
       }
     },
     {
-      "id": "a52a",
-      "cityName": "Canillo",
-      "country": "Andorra",
-      "emoji": "🇦🇩",
-      "date": "2026-01-20T16:00:27.353Z",
-      "notes": "",
-      "position": {
-        "lat": 42.558137548151,
-        "lng": 1.6002248088030238
-      }
-    },
-    {
       "id": "70ab",
       "cityName": "Ibiza",
       "country": "Spain",
@@ -325,39 +73,39 @@
       }
     },
     {
-      "id": "4e4b",
-      "cityName": "Mambah-Kaba",
-      "country": "Liberia",
-      "emoji": "🇱🇷",
-      "date": "2026-01-21T12:37:07.027Z",
-      "notes": "",
+      "id": "b901",
+      "cityName": "Budapest",
+      "country": "Hungary",
+      "emoji": "🇭🇺",
+      "date": "2026-01-22T00:00:00.000Z",
+      "notes": "Why not...",
       "position": {
-        "lat": 6.2361249830392875,
-        "lng": -10.358734130859377
+        "lat": 47.49586436835717,
+        "lng": 19.050979614257816
       }
     },
     {
-      "id": "0967",
-      "cityName": "Sauca",
+      "id": "213c",
+      "cityName": "Hofn",
+      "country": "Iceland",
+      "emoji": "🇮🇸",
+      "date": "2026-01-18T00:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": 64.35857766380434,
+        "lng": -15.946655273437502
+      }
+    },
+    {
+      "id": "e959",
+      "cityName": "Talavera de la Reina",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2026-01-21T15:04:07.315Z",
-      "notes": "cool!",
+      "date": "2025-10-27T00:00:00.000Z",
+      "notes": "Lovelyy",
       "position": {
-        "lat": 41.027571415339786,
-        "lng": -2.5241088867187504
-      }
-    },
-    {
-      "id": "fbc3",
-      "cityName": "",
-      "country": "",
-      "emoji": null,
-      "date": "2026-01-26T09:15:42.880Z",
-      "notes": "",
-      "position": {
-        "lat": 0,
-        "lng": 0
+        "lat": 39.955462320150666,
+        "lng": -4.839477539062501
       }
     }
   ]

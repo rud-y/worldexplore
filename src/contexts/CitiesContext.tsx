@@ -7,8 +7,8 @@ type CitiesContextType = {
  cities: City[];
  isLoading: boolean;
  currentCity: City | null;
- getCity: (id: string) => void;
- createCity: (newCity: City) => City
+ getCity: (id: string) => Promise<void>;
+ createCity: (newCity: NewCity) => Promise<void>
  deleteCity: (id: string) => void;
 }
 

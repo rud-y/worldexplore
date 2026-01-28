@@ -9,6 +9,7 @@ export interface CityItemProps {
 
  const formatDate = (date?: string | Date | null) => {
    if (!date) return "Unknown Date";
+   
    const d = new Date(date);
    if (isNaN(d.getTime())) return "Unknown Date";
 

@@ -10,7 +10,7 @@ import Message from "./Message";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
-// import { NewCity } from "./City";
+import { NewCity } from "./City";
 
 export function convertToEmoji(countryCode: string) {
  if (countryCode.length !== 2) return "";
@@ -33,7 +33,7 @@ function Form() {
  const [cityName, setCityName] = useState("");
  const [emoji, setEmoji] = useState<string | null>(null);
  const [country, setCountry] = useState("");
- const [date, setDate] = useState(new Date());
+ const [date, setDate] = useState<Date | null>(null);
  const [notes, setNotes] = useState("");
  const [isLoading, _setIsLoading] = useState(false)
 
@@ -71,7 +71,7 @@ function Form() {
  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
 
-  if(!cityName || !date || !lat || !lng) {
+  if (!cityName || !date) {
    alert('City or date field is missing!');
    return;
   }
@@ -94,7 +94,10 @@ function Form() {
  if(geocodingError) return <Message message={geocodingError} />
 
   return (
-    <form className={`${styles.form} ${isLoading ? styles.loading : ''}`} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -107,7 +110,11 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <DatePicker selected={date} onChange={(date: Date ) => setDate(date)} dateFormat={"dd/MM/yyyy"}/>
+        <DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat={"dd/MM/yyyy"}
+        />
       </div>
 
       <div className={styles.row}>
@@ -120,11 +127,14 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary">Add</Button>
-        <Button type="back" onClick={(e) => {
-         e.preventDefault()
-         navigate(-1)}}
-         >
+        <Button type="submit">Add</Button>
+        <Button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(-1);
+          }}
+        >
           &larr; Back
         </Button>
       </div>

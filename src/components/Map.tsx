@@ -10,9 +10,10 @@ export default function Map() {
  
  const { cities } = useCities();
  
- const [mapPosition, setMapPosition] = useState([85, 1])
+ const [mapPosition, setMapPosition] = useState([-40, 70])
  const [searchParams] = useSearchParams();
- const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition }: { isLoading: boolean; position: GeolocationPosition | null; getPosition: () => void} = useGeolocation();
+ 
+ const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition }: { isLoading: boolean; position: { lat: number, lng: number} | null; getPosition: () => void} = useGeolocation();
 
  const latParam = Number(searchParams.get('lat'));
  const lngParam = Number(searchParams.get('lng'));
@@ -20,21 +21,20 @@ export default function Map() {
  const lat = !isNaN(latParam) ? Number(latParam) : null;
  const lng = !isNaN(lngParam) ? Number(lngParam) : null;
 
- console.log('lat and lng :: ', lat, lng)
  const navigate = useNavigate();
 
  useEffect(() => {
   if (lat !== null && lng !== null) {
     setMapPosition([lat, lng]);
   } else if (geolocationPosition) {
-    setMapPosition([geolocationPosition.lat , geolocationPosition.lng]);
+    setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
   }
 }, [lat, lng, geolocationPosition]);
 
  
  return (
    <div>
-     <Button type="position" onClick={getPosition}>
+     <Button type="button" onClick={getPosition}>
        {isLoadingPosition ? "Loading . . ." : "Use your geoposition"}
      </Button>
 
