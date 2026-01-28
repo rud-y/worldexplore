@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { City } from '../components/City';
-
+import { NewCity } from '../components/City'
 const BASE_URL = 'http://localhost:7000'
 
 type CitiesContextType = {
@@ -91,7 +91,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
  }
 
  // Create a new city object in form
- async function createCity(newCity: City) {
+ async function createCity(newCity: NewCity) {
   dispatch({ type: 'loading' })
   try {
    const response = await fetch(`${BASE_URL}/cities/`, {
@@ -104,7 +104,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
 
    if(!response.ok) throw new Error("Could not create a new city data");
 
-   const newCityData = await response.json() as typeof City;
+   const newCityData = await response.json() as City;
    dispatch({ type: 'city/created', payload: newCityData });
   
   } catch(error) {

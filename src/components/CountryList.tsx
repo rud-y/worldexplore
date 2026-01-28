@@ -21,7 +21,7 @@ export default function CountriesList() {
    if (!acc.some((c) => c.country === current.country)) {
      acc.push({
        country: current.country,
-       emoji: current.emoji,
+       emoji: current.emoji ?? undefined,
      });
    }
    return acc;

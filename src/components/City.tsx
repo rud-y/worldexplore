@@ -5,13 +5,29 @@ import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
 
 
-const formatDate = (date: Date | string) =>
-  new Intl.DateTimeFormat("en", {
+// const formatDate = (date: Date | string) =>
+//   new Intl.DateTimeFormat("en", {
+//     day: "numeric",
+//     month: "long",
+//     year: "numeric",
+//     weekday: "long",
+//   }).format(new Date(date));
+
+const formatDate = (date?: string | Date | null) => {
+  if (!date) return "Unknown date";
+
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "Unknown date";
+
+  return new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "long",
     year: "numeric",
     weekday: "long",
-  }).format(new Date(date));
+  }).format(d);
+};
+
+  export type NewCity = Omit<City, "id">;
 
 
   export type City = {
@@ -20,9 +36,10 @@ const formatDate = (date: Date | string) =>
       lat: number;
       lng: number;
     };
-    date?: string | Date;
+    // date?: string | Date;
+    date?: string;
     cityName: string;
-    emoji?: string;
+    emoji?: string | null;
     notes?: string;
     country: string;
   };

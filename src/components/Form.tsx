@@ -10,6 +10,7 @@ import Message from "./Message";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
+// import { NewCity } from "./City";
 
 export function convertToEmoji(countryCode: string) {
  if (countryCode.length !== 2) return "";
@@ -45,7 +46,6 @@ function Form() {
       setIsLoadingGeocoding(true);
       const response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
       const data = await response.json();
-      console.log('Geoloc data:: ', data);
 
       if (!data.countryCode)
         throw new Error('That does not seem to be a city. Click somewhere else.');
@@ -54,7 +54,11 @@ function Form() {
       setCityName(data.city || data.locality || "");
       setCountry(data.countryName);
     } catch (err) {
-      setGeocodingError(err.message);
+     if (err instanceof Error) {
+       setGeocodingError(err.message);
+     } else {
+       setGeocodingError("Unknown error occurred");
+     }
     } finally {
       setIsLoadingGeocoding(false);
     }
@@ -64,19 +68,23 @@ function Form() {
 }, [lat, lng])
 
 
- async function handleSubmit(e: SubmitEvent) {
+ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
 
-  if(!cityName || !date) alert('City or date field is missing!')
+  if(!cityName || !date || !lat || !lng) {
+   alert('City or date field is missing!');
+   return;
+  }
 
-   const newCity = {
-    cityName,
-    country,
-    emoji,
-    date,
-    notes,
-    position: { lat, lng }
-   }
+
+   const newCity: NewCity = {
+     cityName,
+     country,
+     emoji: emoji ?? undefined,
+     date,
+     notes,
+     position: { lat, lng },
+   };
 
    await createCity(newCity);
    navigate("/app/cities");
