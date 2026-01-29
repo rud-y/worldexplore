@@ -11,12 +11,6 @@ export default function CountriesList() {
 
  if(!cities.length) return <Message message="Add your first city - click on the city on the Map"/>
 
- // const countries = cities.reduce<Country[]>((acc, current) => {
- //  if (!acc.map((el) => el).includes(current.country))
- //    return [...acc, { country: current.country, emoji: current.emoji }];
- //  else return acc;
- // }, [])
-
  const countries = cities.reduce<Country[]>((acc, current) => {
    if (!acc.some((c) => c.country === current.country)) {
      acc.push({

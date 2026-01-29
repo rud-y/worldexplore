@@ -4,15 +4,6 @@ import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
 
-
-// const formatDate = (date: Date | string) =>
-//   new Intl.DateTimeFormat("en", {
-//     day: "numeric",
-//     month: "long",
-//     year: "numeric",
-//     weekday: "long",
-//   }).format(new Date(date));
-
 export const formatDate = (date?: string | Date | null) => {
   if (!date) return "Unknown date";
 

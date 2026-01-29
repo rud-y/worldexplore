@@ -1,7 +1,15 @@
 export default function PageNotFound() {
   return (
-    <div>
-      <h1>Page not found 😢</h1>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: 'center',
+        minHeight: '50vh',
+        color: "var(--color-dark--2)",
+      }}
+    >
+      <h1>Sorry, the page was not found 😢</h1>
     </div>
   );
 }
