@@ -16,9 +16,6 @@ function PageNav() {
        <PageNavBurger />
      ) : (
        <ul>
-         {/* <li>
-     <NavLink to="/home">Homepage</NavLink>
-    </li> */}
          <li>
            <NavLink to="/product">Products</NavLink>
          </li>

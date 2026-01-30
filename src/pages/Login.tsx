@@ -1,7 +1,7 @@
 import styles from "./Login.module.css";
-import { FormEvent, ReactEventHandler, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import PageNav from "../components/PageNav";
-import { useAuth } from "../contexts/FakeAuthContext";
+import { useAuth } from "../contexts/useAuth";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
@@ -16,7 +16,7 @@ export default function Login() {
   function handleSubmit(e: FormEvent) {
    e.preventDefault();
    if(email && password) {
-    login(email, password)
+    login({email, password})
    }
   }
 

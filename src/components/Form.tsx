@@ -76,7 +76,6 @@ function Form() {
    return;
   }
 
-
    const newCity: NewCity = {
      cityName,
      country,

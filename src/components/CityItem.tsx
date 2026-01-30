@@ -27,7 +27,7 @@ export interface CityItemProps {
     
     function handleDeleteClick(e: React.MouseEvent<HTMLButtonElement>) {
      e.preventDefault();
-     console.log('POSITION LAT---  ', position?.lat)
+  
      deleteCity(id);
     }
     

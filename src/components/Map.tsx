@@ -30,8 +30,6 @@ export default function Map() {
     getPosition: () => void;
   } = useGeolocation();
 
-  console.log('MMMM pos : ', mapPosition)
-
   const latParam = Number(searchParams.get("lat"));
   const lngParam = Number(searchParams.get("lng"));
 
