@@ -28,7 +28,6 @@ export const formatDate = (date?: string | Date | null) => {
       lng: number;
     };
     date?: string | Date;
-    // date?: string;
     cityName: string;
     emoji?: string | null;
     notes?: string;
@@ -48,6 +47,11 @@ function City() {
  }, [id, getCity])
  
  const { cityName = "", emoji = "", date = "", notes = "" } = currentCity || {};
+
+ // const cityName = currentCity?.cityName ?? "";
+ // const emoji = currentCity?.emoji ?? "";
+ // const date = currentCity?.date ?? "";
+ // const notes = currentCity?.notes ?? "";
  
  if(isLoading) return <Spinner />
 

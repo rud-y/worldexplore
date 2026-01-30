@@ -14,14 +14,30 @@ type CitiesContextType = {
 
 const CitiesContext = createContext<CitiesContextType | undefined>(undefined);
 
-const initialState = {
- cities: [],
- isLoading: false,
- currentCity: {},
- error: "",
+type CityState = {
+ cities: City[];
+ isLoading: boolean;
+ currentCity: City | null;
+ error: Error | string;
 }
 
-function reducer(state, action) {
+type CityAction =
+| { type: 'loading' }
+| { type: 'cities/loaded', payload: City[] }
+| { type: 'city/loaded', payload: City }
+| { type: 'city/created', payload: City }
+| { type: 'city/deleted', payload: string }
+| { type: 'rejected', payload: Error | string }
+
+
+const initialState: CityState = {
+  cities: [],
+  isLoading: false,
+  currentCity: null,
+  error: "",
+};
+
+function reducer(state: CityState, action: CityAction): CityState {
  switch(action.type) {
   case 'loading':
    return {...state, isLoading: true}
@@ -41,7 +57,7 @@ function reducer(state, action) {
 
   case 'city/deleted':
    return {
-    ...state, isLoading: false, cities: state.cities.filter((city: City) => city.id !== action.payload), currentCity: {},
+    ...state, isLoading: false, cities: state.cities.filter((city: City) => city.id !== action.payload), currentCity: null,
    }
 
   case 'rejected':
@@ -54,7 +70,7 @@ function reducer(state, action) {
  }
     
 function CitiesProvider({ children }: { children: React.ReactNode }) {
- const[{cities, isLoading, currentCity}, dispatch] = useReducer(reducer, initialState)
+ const[{cities, isLoading, currentCity}, dispatch] = useReducer<React.Reducer<CityState, CityAction>>(reducer, initialState)
 
  useEffect(function() {
   async function fetchCities() {
@@ -66,7 +82,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: 'cities/loaded', payload: data })
    }
   } catch {
-   dispatch({ type: 'rejected', payload: 'There was error loading cities data' })
+   dispatch({ type: 'rejected', payload: new Error('Problem loading cities data') })
   }
  }
 
@@ -75,7 +91,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
 
  // Fetch one city
  async function getCity(id: string) {
-  if(id === currentCity.id) return;
+  if (currentCity && id === currentCity.id ) return;
   dispatch({type: 'loading'})
 
    try {
@@ -83,10 +99,9 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
    if(response.ok) {
     const data = await response.json();
     dispatch({ type: 'city/loaded', payload: data })
-    // setCurrentCity(data);
    }
   } catch {
-   dispatch({ type: 'rejected', payload: 'There was error loading the city data.' })
+   dispatch({ type: 'rejected', payload: new Error('There was error loading the city data.') })
   }
  }
 
