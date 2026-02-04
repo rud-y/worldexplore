@@ -157,7 +157,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
    //  method: "DELETE",
    // });
 
-   await supabase.from("cities").delete(().eq("id", id))
+   await supabase.from("cities").delete().eq("id", id);
    dispatch({ type: 'city/deleted', payload: id})
  } catch(error) {
   dispatch({ type: 'rejected', payload: 'There was error deleting the city data.' })
