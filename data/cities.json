@@ -1,53 +1,15 @@
 {
   "cities": [
-    {
-      "id": "8a8d",
-      "cityName": "Brussels",
-      "country": "Belgium",
-      "emoji": "🇧🇪",
-      "date": "2025-12-31T16:38:10.642Z",
-      "notes": "",
-      "position": {
-        "lat": 50.84583876895451,
-        "lng": 4.344296021350754
-      }
-    },
-    {
-      "id": "8db8",
-      "cityName": "Aalborg",
-      "country": "",
-      "emoji": null,
-      "date": "2026-01-01T09:48:25.000Z",
-      "notes": "Lovely cinnamon danish.",
-      "position": {
-        "lat": 0,
-        "lng": 0
-      }
-    },
-    {
-      "id": "6e43",
-      "cityName": "Lima",
-      "country": "Peru",
-      "emoji": "🇵🇪",
-      "date": "2026-01-14T17:04:31.096Z",
-      "notes": "Lovely natives.",
-      "position": {
-        "lat": -12.125264218331578,
-        "lng": -76.68922017223791
-      }
-    },
-    {
-      "id": "85d6",
-      "cityName": "Oyem",
-      "country": "Gabon",
-      "emoji": "🇬🇦",
-      "date": "2026-01-14T18:40:30.352Z",
-      "notes": "",
-      "position": {
-        "lat": 0.9087372277666199,
-        "lng": 10.634765625
-      }
-    },
+    // {
+    //   "id": "6e43",
+    //   "cityName": "Lima",
+    //   "country": "Peru",
+    //   "emoji": "🇵🇪",
+    //   "date": "2026-01-14T17:04:31.096Z",
+    //   "notes": "Lovely natives.",
+    //   "lat": -12.125264218331578,
+    //   "lng": -76.68922017223791
+    // },
     {
       "id": "5d04",
       "cityName": "Casaluce",
@@ -73,30 +35,6 @@
       }
     },
     {
-      "id": "b901",
-      "cityName": "Budapest",
-      "country": "Hungary",
-      "emoji": "🇭🇺",
-      "date": "2026-01-22T00:00:00.000Z",
-      "notes": "Why not...",
-      "position": {
-        "lat": 47.49586436835717,
-        "lng": 19.050979614257816
-      }
-    },
-    {
-      "id": "213c",
-      "cityName": "Hofn",
-      "country": "Iceland",
-      "emoji": "🇮🇸",
-      "date": "2026-01-18T00:00:00.000Z",
-      "notes": "",
-      "position": {
-        "lat": 64.35857766380434,
-        "lng": -15.946655273437502
-      }
-    },
-    {
       "id": "e959",
       "cityName": "Talavera de la Reina",
       "country": "Spain",
@@ -106,6 +44,66 @@
       "position": {
         "lat": 39.955462320150666,
         "lng": -4.839477539062501
+      }
+    },
+    {
+      "id": "f4ab",
+      "cityName": "Bordeaux",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-09-04T23:00:00.000Z",
+      "notes": "Wine!",
+      "position": {
+        "lat": 44.83249999349062,
+        "lng": -0.5987548828125
+      }
+    },
+    {
+      "id": "1863",
+      "cityName": "Reims",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-01-04T00:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": 49.24549381969085,
+        "lng": 4.031982421875001
+      }
+    },
+    {
+      "id": "dc56",
+      "cityName": "Sant'Andrea-di-Bozio",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-01-09T00:00:00.000Z",
+      "notes": "Wonderful Corsica!",
+      "position": {
+        "lat": 42.29254835143024,
+        "lng": 9.26902770996094
+      }
+    },
+    {
+      "id": "ae09",
+      "cityName": "Cordoba",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-01-25T00:00:00.000Z",
+      "notes": "Tapas !!",
+      "position": {
+        "lat": 37.89653044754303,
+        "lng": -4.7515869140625
+      }
+    },
+    {
+      "id": "9554",
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2026-01-11T00:00:00.000Z",
+      "notes": "Historical city, the berlin wall, absolutely fantastic place to see. Sad as well.",
+      "position": {
+        "lat": 52.51705655410405,
+        "lng": 13.398546114814895
       }
     }
   ]

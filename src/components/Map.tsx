@@ -17,7 +17,7 @@ import { LatLngTuple, LeafletMouseEvent } from "leaflet";
 export default function Map() {
   const { cities } = useCities();
 
-  const [mapPosition, setMapPosition] = useState<LatLngTuple>([50, 70]);
+  const [mapPosition, setMapPosition] = useState<LatLngTuple>([80, 10]);
   const [searchParams] = useSearchParams();
 
   const {
@@ -61,14 +61,14 @@ export default function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => {
-          if (!city.position) return null;
+          if (!city) return null;
           return (
             <Marker
-              position={[city.position.lat, city.position.lng]}
+              position={[city.lat, city.lng]}
               key={city.id}
             >
               <Popup>
-                <span>{city.emoji}</span> <span>{city.cityName}</span>
+                <span>{city.emoji}</span> <span>{city.cityname}</span>
               </Popup>
             </Marker>
           );

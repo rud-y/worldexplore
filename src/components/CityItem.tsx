@@ -22,7 +22,7 @@ export interface CityItemProps {
  };
   
   export default function CityItem({ city }: CityItemProps) {
-    const { id, date, position, emoji, cityName } = city;
+    const { id, date, lat, lng, emoji, cityname } = city;
     const { deleteCity } = useCities();
     
     function handleDeleteClick(e: React.MouseEvent<HTMLButtonElement>) {
@@ -31,18 +31,16 @@ export interface CityItemProps {
      deleteCity(id);
     }
     
-    if (!position) return null;
-
     const formattedDate = formatDate(date);
 
     return (
       <li>
         <Link
           className={styles.cityItem}
-          to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+          to={`${id}?lat=${lat}&lng=${lng}`}
         >
           <span className={styles.emoji}>{emoji}</span>
-          <h3 className={styles.name}>{cityName}</h3>
+          <h3 className={styles.name}>{cityname}</h3>
           <time className={styles.date}>{formattedDate}</time>
           <button className={styles.deleteBtn} onClick={handleDeleteClick}>
             &times;

@@ -14,8 +14,9 @@ import { AuthProvider } from "./contexts/FakeAuthContext"
 import ProtectedRoute from "./pages/ProtectedRoute"
 
 function App() {
-  return (
-    <div>
+
+ return (
+  <div>
       <AuthProvider>
         <CitiesProvider>
           <BrowserRouter>

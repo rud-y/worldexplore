@@ -53,8 +53,8 @@ function reducer(state: AuthenticationState, action: AuthAction) {
 }
 
 const FAKE_USER: User = {
- name: "Donald",
- email: "donald@example.com",
+ name: "User",
+ email: "usersample@example.com",
  password: "321qwerty",
  avatar: "https://i.pravatar.cc/100?u=zz",
 };

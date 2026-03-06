@@ -2,33 +2,17 @@ import styles from "./City.module.css";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
+import { formatDate } from "../utils/formatDate"
 import Spinner from "./Spinner";
-
-export const formatDate = (date?: string | Date | null) => {
-  if (!date) return "Unknown date";
-
-  const d = new Date(date);
-  if (isNaN(d.getTime())) return "Unknown date";
-
-  return new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(d);
-};
 
   export type NewCity = Omit<City, "id">;
 
-
   export type City = {
     id: string;
-    position?: {
-      lat: number;
-      lng: number;
-    };
+    cityname: string;
+    lat: number;
+    lng: number;
     date?: string | Date;
-    cityName: string;
     emoji?: string | null;
     notes?: string;
     country: string;
@@ -46,7 +30,7 @@ function City() {
   getCity(id);
  }, [id, getCity])
  
- const { cityName = "", emoji = "", date = "", notes = "" } = currentCity || {};
+ const { cityname = "", emoji = "", date = "", notes = "" } = currentCity || {};
 
  // const cityName = currentCity?.cityName ?? "";
  // const emoji = currentCity?.emoji ?? "";
@@ -60,12 +44,12 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>{emoji}</span> {cityname}
         </h3>
       </div>
 
       <div className={styles.row}>
-        <h6>You went to {cityName} on</h6>
+        <h6>You went to {cityname} on</h6>
         <p>{formatDate(date)}</p>
       </div>
 
@@ -79,11 +63,11 @@ function City() {
       <div className={styles.row}>
         <h6>Learn more</h6>
         <a
-          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          href={`https://en.wikipedia.org/wiki/${cityname}`}
           target="_blank"
           rel="noreferrer"
         >
-          Check out {cityName} on Wikipedia &rarr;
+          Check out {cityname} on Wikipedia &rarr;
         </a>
       </div>
     </div>

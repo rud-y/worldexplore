@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { City } from '../components/City';
-import { NewCity } from '../components/City'
+import { City, NewCity } from '../components/City';
 import { supabase } from "../services/supabase";
-const BASE_URL = 'http://localhost:7000'
 
 type CitiesContextType = {
  cities: City[];
@@ -40,12 +38,15 @@ const initialState: CityState = {
 
 function reducer(state: CityState, action: CityAction): CityState {
  switch(action.type) {
+
   case 'loading':
    return {...state, isLoading: true}
+
   case 'cities/loaded':
    return {
     ...state, isLoading: false, cities: action.payload
    }
+
    case 'city/loaded':
     return {
      ...state, isLoading: false, currentCity: action.payload
@@ -66,7 +67,8 @@ function reducer(state: CityState, action: CityAction): CityState {
     ...state, isLoading: false, error: action.payload
    }
 
-   default: throw new Error('Unknown action type');
+   default: 
+   throw new Error('Unknown action type');
   }
  }
     
@@ -76,13 +78,12 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
  useEffect(function() {
   async function fetchCities() {
    dispatch({type: 'loading'})
+
    try {
-    // const response = await fetch(`${BASE_URL}/cities`);
     const { data, error } = await supabase.from("cities").select("*");
-    if (error) throw error;
-    
-   // if(response.ok) {}
-    // const data = await response.json();
+    if (error) {
+     throw error;
+    }
     dispatch({ type: 'cities/loaded', payload: data })
   } catch {
    dispatch({ type: 'rejected', payload: new Error('Problem loading cities data') })
@@ -98,50 +99,40 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
   dispatch({type: 'loading'})
 
    try {
-   const response = await fetch(`${BASE_URL}/cities/${id}`);
-   if(response.ok) {
-    const data = await response.json();
+   const { data, error } = await supabase.from("cities").select("*").eq("id", id).single();
+
+   if(data) {
     dispatch({ type: 'city/loaded', payload: data })
+   } else {
+    console.error(error)
    }
+
   } catch {
-   dispatch({ type: 'rejected', payload: new Error('There was error loading the city data.') })
+   dispatch({ type: 'rejected', payload: new Error('There was error loading the city data!!')})
   }
  }
 
  // Create a new city object in form
  async function createCity(newCity: NewCity) {
   dispatch({ type: 'loading' })
+
   try {
-   // const response = await fetch(`${BASE_URL}/cities/`, {
-   //  method: 'POST',
-   //  body: JSON.stringify(newCity),
-   //  headers: {
-   //   'Content-Type': 'application/json'
-   //  }
-   // });
-
-   // if(!response.ok) throw new Error("Could not create a new city data");
-
-   // const newCityData = await response.json() as City;
-
-   const { data, error } = await supabase
-     .from("cities")
-     .insert([
-       {
-         cityName: newCity.cityName,
-         country: newCity.country,
-         emoji: newCity.emoji,
-         date: newCity.date,
-         notes: newCity.notes,
-         lat: newCity?.position?.lat,
-         lng: newCity?.position?.lng,
-       },
-     ])
-     .select()
-     .single();
-
+   const { data, error } = await supabase.from("cities").insert([
+    {
+     cityname: newCity.cityname,
+     country: newCity.country,
+     emoji: newCity.emoji,
+     date: newCity.date,
+     notes: newCity.notes,
+     lat: Number(newCity?.lat),
+     lng: Number(newCity?.lng),
+    },
+   ])
+   .select()
+   .single();
+   
    if (error) throw error;
-
+   
    dispatch({ type: 'city/created', payload: data });
   
   } catch(error) {
@@ -152,11 +143,8 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
  // Delete a city
  async function deleteCity(id: string) {
   dispatch({ type: 'loading' })
-  try {
-   // await fetch(`${BASE_URL}/cities/${id}`, {
-   //  method: "DELETE",
-   // });
 
+  try {
    await supabase.from("cities").delete().eq("id", id);
    dispatch({ type: 'city/deleted', payload: id})
  } catch(error) {

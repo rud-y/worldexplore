@@ -30,7 +30,7 @@ function Form() {
  const navigate = useNavigate();
  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
  const [geocodingError, setGeocodingError] = useState("")
- const [cityName, setCityName] = useState("");
+ const [cityname, setCityName] = useState("");
  const [emoji, setEmoji] = useState<string | null>(null);
  const [country, setCountry] = useState("");
  const [date, setDate] = useState<Date | null>(null);
@@ -71,18 +71,20 @@ function Form() {
  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
 
-  if (!cityName || !date) {
+  if (!cityname || !date) {
    alert('City or date field is missing!');
    return;
   }
 
    const newCity: NewCity = {
-     cityName,
+     cityname,
      country,
      emoji: emoji ?? undefined,
      date,
      notes,
-     position: { lat, lng },
+     lat,
+     lng
+     // position: { lat, lng },
    };
 
    await createCity(newCity);
@@ -102,13 +104,13 @@ function Form() {
         <input
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
-          value={cityName}
+          value={cityname}
         />
         <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        <label htmlFor="date">When did you go to {cityname}?</label>
         <DatePicker
           selected={date}
           onChange={(date) => setDate(date)}
@@ -117,7 +119,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <label htmlFor="notes">Notes about your trip to {cityname}</label>
         <textarea
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
