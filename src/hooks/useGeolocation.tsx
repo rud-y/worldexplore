@@ -17,11 +17,17 @@ function useGeolocation(defaultPosition: Position | null = null) {
 
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setPosition({
-          lat: pos?.coords?.latitude,
-          lng: pos?.coords?.longitude
-        });
+     (pos) => {
+      const lat = pos.coords.latitude;
+      const lng = pos.coords.longitude;
+
+      // Value validity check
+      const isValid = (val: unknown): val is number =>
+        typeof val === "number" && !isNaN(val);
+
+      if (isValid(lat) && isValid(lng)) {
+        setPosition({ lat, lng });
+      }
         setIsLoading(false);
       },
       (error) => {

@@ -17,12 +17,12 @@ import { LatLngTuple, LeafletMouseEvent } from "leaflet";
 export default function Map() {
   const { cities } = useCities();
 
-  const [mapPosition, setMapPosition] = useState<LatLngTuple>([80, 10]);
+  const [mapPosition, setMapPosition] = useState<LatLngTuple>([47, 9]);
   const [searchParams] = useSearchParams();
 
   const {
     isLoading: isLoadingPosition,
-    position: geolocationPosition,
+    position: _geolocationPosition,
     getPosition,
   }: {
     isLoading: boolean;
@@ -30,19 +30,15 @@ export default function Map() {
     getPosition: () => void;
   } = useGeolocation();
 
-  const latParam = Number(searchParams.get("lat"));
-  const lngParam = Number(searchParams.get("lng"));
+ const lat = searchParams.get("lat");
+ const lng = searchParams.get("lng");
 
-  const lat = !isNaN(latParam) ? Number(latParam) : null;
-  const lng = !isNaN(lngParam) ? Number(lngParam) : null;
-
-  useEffect(() => {
-    if (lat !== null && lng !== null) {
-      setMapPosition([lat, lng]);
-    } else if (geolocationPosition) {
-      setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
-    }
-  }, [lat, lng, geolocationPosition]);
+ useEffect(() => {
+   // Check if the string exists in the URL at all
+   if (lat !== null && lng !== null) {
+     setMapPosition([Number(lat), Number(lng)]);
+   }
+ }, [lat, lng]);
 
   return (
     <div>
@@ -53,7 +49,7 @@ export default function Map() {
       <MapContainer
         className={styles.mapContainer}
         center={mapPosition}
-        zoom={8}
+        zoom={6}
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -63,40 +59,25 @@ export default function Map() {
         {cities.map((city) => {
           if (!city) return null;
           return (
-            <Marker
-              position={[city.lat, city.lng]}
-              key={city.id}
-            >
+            <Marker position={[city.lat, city.lng]} key={city.id}>
               <Popup>
                 <span>{city.emoji}</span> <span>{city.cityname}</span>
               </Popup>
             </Marker>
           );
         })}
-        {lat !== null && lng !== null && <ChangeCenter position={[lat, lng]} />}
-        <DetectClick />
+        <ChangeCenter position={mapPosition} />
         <MapClickHandler />
       </MapContainer>
     </div>
   );
 }
 
-function ChangeCenter({ position }: { position: [number, number] }) {
+function ChangeCenter({ position }: { position: LatLngTuple }) {
   const map = useMap();
   map.setView(position);
 
-  return null;
-}
-
-function DetectClick() {
-  const navigate = useNavigate();
-
-  useMapEvents({
-    click: (e) => {
-      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
-    },
-  });
-  return null;
+  return null ;
 }
 
 function MapClickHandler() {
