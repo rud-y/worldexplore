@@ -3,6 +3,7 @@ import { createContext, useReducer, PropsWithChildren } from "react";
 type AuthContextType = {
   user: User | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   login: ({ email, password }: { email: string, password: string}) => void;
   logout: () => void;
 };
@@ -17,9 +18,10 @@ export type User = {
 };
 
 type AuthenticationState = {
- user: User | null;
- isAuthenticated: boolean;
-}
+  user: User | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+};
 
 type AuthAction =
  | { type: 'login', payload: User}
@@ -29,6 +31,7 @@ type AuthAction =
 const initialState: AuthenticationState = {
  user: null,
  isAuthenticated: false,
+ isLoading: false,
 }
 
 function reducer(state: AuthenticationState, action: AuthAction) {
@@ -60,7 +63,7 @@ const FAKE_USER: User = {
 };
 
 function AuthProvider({ children }: PropsWithChildren) {
-  const [{ user, isAuthenticated }, dispatch] = useReducer(
+  const [{ user, isAuthenticated, isLoading }, dispatch] = useReducer(
     reducer,
     initialState,
   );
@@ -75,7 +78,7 @@ function AuthProvider({ children }: PropsWithChildren) {
   }
 
   return (
-    <AuthContext.Provider value={{ login, logout, user, isAuthenticated }}>
+    <AuthContext.Provider value={{ login, logout, user, isAuthenticated, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
