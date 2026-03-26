@@ -22,7 +22,7 @@ export default function Map() {
 
   const {
     isLoading: isLoadingPosition,
-    position: _geolocationPosition,
+    position: geolocationPosition,
     getPosition,
   }: {
     isLoading: boolean;
@@ -34,11 +34,15 @@ export default function Map() {
  const lng = searchParams.get("lng");
 
  useEffect(() => {
-   // Check if the string exists in the URL at all
    if (lat !== null && lng !== null) {
      setMapPosition([Number(lat), Number(lng)]);
+   } else if (geolocationPosition !== null) {
+     setMapPosition([
+       Number(geolocationPosition.lat),
+       Number(geolocationPosition.lng),
+     ]);
    }
- }, [lat, lng]);
+ }, [lat, lng, geolocationPosition]);
 
   return (
     <div>
