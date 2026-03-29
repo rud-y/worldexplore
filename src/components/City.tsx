@@ -1,9 +1,10 @@
 import styles from "./City.module.css";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import { formatDate } from "../utils/formatDate"
 import Spinner from "./Spinner";
+import Button from "./Button";
 
   export type NewCity = Omit<City, "id">;
 
@@ -23,19 +24,16 @@ function City() {
  const { id } = useParams();
 
  const { getCity, currentCity, isLoading } = useCities();
+ const navigate = useNavigate();
 
  useEffect(() => {
   if (!id) return;
  
   getCity(id);
  }, [id, getCity])
+
  
  const { cityname = "", emoji = "", date = "", notes = "" } = currentCity || {};
-
- // const cityName = currentCity?.cityName ?? "";
- // const emoji = currentCity?.emoji ?? "";
- // const date = currentCity?.date ?? "";
- // const notes = currentCity?.notes ?? "";
  
  if(isLoading) return <Spinner />
 
@@ -69,6 +67,16 @@ function City() {
         >
           Check out {cityname} on Wikipedia &rarr;
         </a>
+      </div>
+
+      <div>
+        <Button
+          onClick={() =>
+            navigate(`/app/form/${id}?lat=${currentCity?.lat}&lng=${currentCity?.lng}`)
+          }
+        >
+          Edit city info
+        </Button>
       </div>
     </div>
   );

@@ -40,8 +40,8 @@ function App() {
 
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />
+                <Route path="form/:id" element={<Form />} />
               </Route>
-
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>

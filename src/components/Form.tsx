@@ -1,7 +1,7 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "./Button";
 import styles from "./Form.module.css";
 import { useUrlPosition } from "../hooks/useUrlPosition";
@@ -15,75 +15,101 @@ import { convertToEmoji } from "../utils/convertToEmoji";
 
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
-function Form() {
- const [lat, lng ] = useUrlPosition();
- const { createCity } = useCities();
- const navigate = useNavigate();
- const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
- const [geocodingError, setGeocodingError] = useState("")
- const [cityname, setCityName] = useState("");
- const [emoji, setEmoji] = useState<string | null>(null);
- const [country, setCountry] = useState("");
- const [date, setDate] = useState<Date | null>(null);
- const [notes, setNotes] = useState("");
- const [isLoading, _setIsLoading] = useState(false)
+function Form () {
+  // const [lat, lng ] = useUrlPosition();
+  const { createCity, updateCity, currentCity } = useCities();
+  const navigate = useNavigate();
+  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+  const [geocodingError, setGeocodingError] = useState("");
+  const [cityname, setCityName] = useState("");
+  const [emoji, setEmoji] = useState<string | null>(null);
+  const [country, setCountry] = useState("");
+  const [date, setDate] = useState<Date | null>(null);
+  const [notes, setNotes] = useState("");
+  const [isLoading, _setIsLoading] = useState(false);
 
+  const { id } = useParams();
+  // If id exists then it is editing form
+  const isEditForm = Boolean(id);
 
- useEffect(() => {
-  if (!lat || !lng) return;
+  const [mapLat, mapLng] = useUrlPosition();
 
-  async function fetchCityData() {
+  useEffect(() => {
+    if (!mapLat || !mapLng) return;
+
+    async function fetchCityData() {
+      try {
+        setIsLoadingGeocoding(true);
+        const response = await fetch(
+          `${BASE_URL}?latitude=${mapLat}&longitude=${mapLng}`,
+        );
+        const data = await response.json();
+
+        if (!data.countryCode)
+          throw new Error(
+            "That does not seem to be a city. Click somewhere else.",
+          );
+
+        setEmoji(convertToEmoji(data.countryCode));
+        setCityName(data.city || data.locality || "");
+        setCountry(data.countryName);
+        setNotes(data.notes);
+      } catch (err) {
+        if (err instanceof Error) {
+          setGeocodingError(err.message);
+        } else {
+          setGeocodingError("Unknown error occurred");
+        }
+      } finally {
+        setIsLoadingGeocoding(false);
+      }
+    }
+
+    fetchCityData();
+  }, [mapLat, mapLng]);
+
+  useEffect(() => {
+   if (isEditForm && currentCity) {
+    setCityName(currentCity.cityname);
+    if(currentCity.date) setDate(new Date(currentCity.date));
+    setNotes(currentCity.notes || "");
+    setCountry(currentCity.country);
+    setEmoji(currentCity.emoji || "");
+   }
+  }, [isEditForm, currentCity])
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (!cityname || !date) {
+      alert("City or date field is missing!");
+      return;
+    }
+
+    const newCity: NewCity = {
+      cityname,
+      country,
+      emoji: emoji ?? undefined,
+      date,
+      notes,
+      lat: mapLat,
+      lng: mapLng,
+    };
+
     try {
-      setIsLoadingGeocoding(true);
-      const response = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
-      const data = await response.json();
-
-      if (!data.countryCode)
-        throw new Error('That does not seem to be a city. Click somewhere else.');
-
-      setEmoji(convertToEmoji(data.countryCode));
-      setCityName(data.city || data.locality || "");
-      setCountry(data.countryName);
+      if (isEditForm && id) {
+        await updateCity(id, newCity);
+      } else {
+        await createCity(newCity);
+      }
+      navigate("/app/cities");
     } catch (err) {
-     if (err instanceof Error) {
-       setGeocodingError(err.message);
-     } else {
-       setGeocodingError("Unknown error occurred");
-     }
-    } finally {
-      setIsLoadingGeocoding(false);
+      console.error("Failed to update the city", err);
     }
   }
 
-  fetchCityData();
-}, [lat, lng])
-
-
- async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-
-  if (!cityname || !date) {
-   alert('City or date field is missing!');
-   return;
-  }
-
-   const newCity: NewCity = {
-     cityname,
-     country,
-     emoji: emoji ?? undefined,
-     date,
-     notes,
-     lat,
-     lng
-     // position: { lat, lng },
-   };
-
-   await createCity(newCity);
-   navigate("/app/cities");
- }
-
- if(isLoadingGeocoding) return <Spinner />
- if(geocodingError) return <Message message={geocodingError} />
+  if (isLoadingGeocoding) return <Spinner />;
+  if (geocodingError) return <Message message={geocodingError} />;
 
   return (
     <form
@@ -119,11 +145,10 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="submit">Add</Button>
+        <Button type="submit">{isEditForm ? "Update city info" : "Add"}</Button>
         <Button
           type="button"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             navigate(-1);
           }}
         >
