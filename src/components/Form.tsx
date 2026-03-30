@@ -16,7 +16,6 @@ import { convertToEmoji } from "../utils/convertToEmoji";
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
 function Form () {
-  // const [lat, lng ] = useUrlPosition();
   const { createCity, updateCity, currentCity } = useCities();
   const navigate = useNavigate();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
@@ -35,11 +34,12 @@ function Form () {
   const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(() => {
-    if (!mapLat || !mapLng) return;
+    if (!mapLat || !mapLng || isEditForm) return;
 
     async function fetchCityData() {
       try {
         setIsLoadingGeocoding(true);
+        setGeocodingError("")
         const response = await fetch(
           `${BASE_URL}?latitude=${mapLat}&longitude=${mapLng}`,
         );
@@ -53,7 +53,6 @@ function Form () {
         setEmoji(convertToEmoji(data.countryCode));
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
-        setNotes(data.notes);
       } catch (err) {
         if (err instanceof Error) {
           setGeocodingError(err.message);
@@ -66,7 +65,7 @@ function Form () {
     }
 
     fetchCityData();
-  }, [mapLat, mapLng]);
+  }, [mapLat, mapLng, isEditForm]);
 
   useEffect(() => {
    if (isEditForm && currentCity) {
