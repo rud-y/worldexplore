@@ -85,13 +85,13 @@ function ChangeCenter({ position }: { position: LatLngTuple }) {
 }
 
 function MapClickHandler() {
-  const navigate = useNavigate();
-
-  useMapEvents({
-    click: (e: LeafletMouseEvent) => {
-      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
-    },
-  });
+ const navigate = useNavigate();
+ 
+ useMapEvents({
+  click: (e: LeafletMouseEvent) => {
+   navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+  },
+ });
 
   return null;
 }

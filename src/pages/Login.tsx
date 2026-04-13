@@ -7,19 +7,30 @@ import Button from "../components/Button";
 
 export default function Login() {
  // PRE-FILL FOR DEV PURPOSES
- const [email, setEmail] = useState("usersample@example.com");
- const [password, setPassword] = useState("321qwerty");
+ const [email, setEmail] = useState("");
+ const [password, setPassword] = useState("");
+ const [username, setUsername] = useState("");
+ const [isLogin, setIsLogin] = useState(true);
 
- const { login, isAuthenticated } = useAuth();
+ const { login, signup, isAuthenticated } = useAuth();
  const navigate = useNavigate();
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
    e.preventDefault();
-   if(email && password) {
-    login({email, password})
+
+   try {
+    if(isLogin) {
+     await login({ email, password})
+    } else {
+     await signup({username, email, password})
+     alert("Check email for confirmation link")
+     setIsLogin(true);
+    }
+   } catch (err) {
+    alert(err instanceof Error ? err.message : "Failed authentication!")
    }
   }
-
+  
   useEffect(function() {
    if(isAuthenticated) navigate("/app", { replace: true})
 
@@ -27,8 +38,9 @@ export default function Login() {
 
   return (
     <main className={styles.login}>
-     <PageNav />
+      <PageNav />
       <form className={styles.form} onSubmit={handleSubmit}>
+        <h2>{isLogin ? "LOGIN" : "SIGNUP"}</h2>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -36,6 +48,7 @@ export default function Login() {
             id="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            required
           />
         </div>
 
@@ -46,13 +59,29 @@ export default function Login() {
             id="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
+            autoComplete="current-password"
+            required
           />
         </div>
 
         <div>
-          <Button type="submit">Login</Button>
+          <Button type="submit">{isLogin ? "LOGIN" : "SIGNUP"}</Button>
+        </div>
+
+        <div className={styles.toggle}>
+          <p>
+            {isLogin ? "Don't have an account?" : "Already have an account?"}
+            <button
+              type="button"
+              className={styles.linkBtn}
+              onClick={() => setIsLogin(!isLogin)}
+            >
+              {isLogin ? "Sign up now" : "Login instead"}
+            </button>
+          </p>
         </div>
       </form>
     </main>
   );
 }
+

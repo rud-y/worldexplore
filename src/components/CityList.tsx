@@ -14,13 +14,16 @@ export default function CityList() {
  if(!cities.length) return <Message message="Add your first city - click on the city on the Map"/>
 
  return (
-  <>
-   <h1>City list down here:</h1>
-   <ul className={styles.cities}>
-     {cities.map((city: City) => (
-       <CityItem city={city} key={city.id} />
-     ))}
-   </ul>
-  </>
+   <>
+     <h1>City list down here:</h1>
+     <ul className={styles.cities}>
+       {cities.map((city: City) => (
+         <CityItem
+           city={city}
+           key={`${city.lat}--${city.lng}`}
+         />
+       ))}
+     </ul>
+   </>
  );
 }

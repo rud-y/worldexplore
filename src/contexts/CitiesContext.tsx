@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useCallback, useContext, useEffect, useReducer } from "react";
 import { City, NewCity } from '../components/City';
 import { supabase } from "../services/supabase";
+import { useAuth } from "./useAuth";
 
 type CitiesContextType = {
  cities: City[];
@@ -95,12 +96,21 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     React.Reducer<CityState, CityAction>
   >(reducer, initialState);
 
+  const { user } = useAuth();
+
   useEffect(function () {
+   if(!user?.id) {
+    dispatch({ type: "cities/loaded", payload: [] })
+    return;
+   }
     async function fetchCities() {
       dispatch({ type: "loading" });
 
       try {
-        const { data, error } = await supabase.from("cities").select("*");
+        const { data, error } = await supabase
+          .from("cities")
+          .select("*")
+          .eq("user_id", user?.id);
         if (error) {
           throw error;
         }
@@ -114,11 +124,11 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     }
 
     fetchCities();
-  }, []);
+  }, [user]);
 
   // Fetch one city
-  async function getCity(id: string) {
-    if (currentCity && id === currentCity.id) return;
+  const getCity = useCallback(async function getCity(id: string) {
+    if (currentCity && String(id) === String(currentCity.id)) return;
     dispatch({ type: "loading" });
 
     try {
@@ -139,10 +149,10 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
         payload: new Error("There was error loading the city data!!"),
       });
     }
-  }
+  }, [currentCity]);
 
-  // Create a new city object in form
-  async function createCity(newCity: NewCity) {
+  // Create a new city object
+  const createCity = useCallback(async function createCity(newCity: NewCity) {
     dispatch({ type: "loading" });
 
     try {
@@ -157,11 +167,12 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
             notes: newCity.notes,
             lat: Number(newCity?.lat),
             lng: Number(newCity?.lng),
+            user_id: user?.id,
           },
         ])
         .select()
         .single();
-
+  
       if (error) throw error;
 
       dispatch({ type: "city/created", payload: data });
@@ -171,7 +182,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
         payload: "There was error creating a new city data.",
       });
     }
-  }
+  }, [user?.id]);
 
   // Edit current city object
   async function updateCity( cityId: string, updatedCity: NewCity ) {

@@ -26,13 +26,11 @@ function City() {
  const { getCity, currentCity, isLoading } = useCities();
  const navigate = useNavigate();
 
- useEffect(() => {
-  if (!id) return;
- 
-  getCity(id);
- }, [id, getCity])
+  useEffect(() => {
+   if (!id) return;
+   getCity(id);
+  }, [id, getCity])
 
- 
  const { cityname = "", emoji = "", date = "", notes = "" } = currentCity || {};
  
  if(isLoading) return <Spinner />
