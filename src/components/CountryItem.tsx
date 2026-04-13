@@ -8,8 +8,8 @@ export interface Country {
  function CountryItem({ country }: {country: Country}) {
   return (
     <li className={styles.countryItem}>
-      <span>{country.emoji}</span>
-      <span>{country.country}</span>
+      <span>{country.emoji ? country.emoji : `?`}</span>
+      <span>{country.country ? country.country : `Unknown place`}</span>
     </li>
   );
 }

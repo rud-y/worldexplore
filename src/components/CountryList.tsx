@@ -1,4 +1,4 @@
-import styles from './City.module.css'
+import styles from './CountryList.module.css'
 import Spinner from './Spinner'
 import CountryItem, { Country } from './CountryItem'
 import Message from './Message'
@@ -23,9 +23,13 @@ export default function CountriesList() {
 
 
  return (
+   <div>
+     <h1 className={styles.title}>Countries you have visited...</h1>
      <ul className={styles.countriesList}>
-      {countries.map((country) => <CountryItem country={country} key={country.country}/>)}
+       {countries.map((country) => (
+         <CountryItem country={country} key={country.country} />
+       ))}
      </ul>
-   
-  )
+   </div>
+ );
 }

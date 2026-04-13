@@ -115,6 +115,7 @@ function Form () {
       className={`${styles.form} ${isLoading ? styles.loading : ""}`}
       onSubmit={handleSubmit}
     >
+     <h1>Add your new city</h1>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input

@@ -1,4 +1,4 @@
-import styles from './City.module.css'
+import styles from './CityList.module.css'
 import Spinner from './Spinner'
 import type { City } from './City'
 import CityItem from './CityItem'
@@ -15,7 +15,7 @@ export default function CityList() {
 
  return (
    <>
-     <h1>City list down here:</h1>
+     <h1>Places you have visited...</h1>
      <ul className={styles.cities}>
        {cities.map((city: City) => (
          <CityItem

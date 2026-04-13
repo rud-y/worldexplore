@@ -1,11 +1,12 @@
-.countryList {
+.countriesList {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
   width: 100%;
-  height: 65vh;
+  margin-top: 3rem;
   list-style: none;
   overflow-y: scroll;
   overflow-x: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   align-content: start;
-  gap: 5rem;
+  gap: 0.5rem;
 }
