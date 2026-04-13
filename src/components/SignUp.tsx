@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { useNavigate } from "react-router-dom";
-import styles from "./Login.module.css"; // Reuse your login styles
+import styles from "./Login.module.css";
 
 export default function Signup() {
-  const [username, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,7 +34,7 @@ export default function Signup() {
           <input
             type="text"
             id="name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             value={username}
             required
           />

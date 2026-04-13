@@ -5,6 +5,7 @@ import { User } from "@supabase/supabase-js";
 type AuthContextType = {
   user: User | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   login: ({
     email,
     password,
@@ -43,7 +44,7 @@ type AuthAction =
  | { type: 'login', payload: User }
  | { type: 'logout' }
  | { type: 'loading_done' }
- | { type: 'signup' }
+ | { type: 'signup', payload: User }
 
 
 const initialState: AuthenticationState = {
@@ -117,12 +118,12 @@ function AuthProvider({ children }: PropsWithChildren) {
     return () => subscription.unsubscribe();
   }, []);
 
-  async function signup({ email, password, name }: {email: string, password: string, name: string}) {
+  async function signup({ email, password, username }: {email: string, password: string, username: string}) {
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { full_name: name, avatar_url: "https://i.pravatar.cc/100" },
+        data: { full_name: username, avatar_url: "https://i.pravatar.cc/100" },
       },
     });
     if (error) throw new Error(error.message);
@@ -135,7 +136,7 @@ function AuthProvider({ children }: PropsWithChildren) {
     email: string;
     password: string;
   }) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });

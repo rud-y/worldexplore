@@ -15,8 +15,8 @@ function User() {
 
   return (
     <div className={styles.user}>
-      <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span>
+      <img src={user.user_metadata?.avatar} alt={user.user_metadata?.full_name} />
+      <span>Welcome, {user.user_metadata?.full_name || "User"}</span>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );

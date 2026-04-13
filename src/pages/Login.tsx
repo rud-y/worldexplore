@@ -9,7 +9,7 @@ export default function Login() {
  // PRE-FILL FOR DEV PURPOSES
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
- const [username, setUsername] = useState("");
+ const [username, _setUsername] = useState("");
  const [isLogin, setIsLogin] = useState(true);
 
  const { login, signup, isAuthenticated } = useAuth();
