@@ -7,6 +7,6 @@
   list-style: none;
   overflow-y: scroll;
   overflow-x: hidden;
-  align-content: start;
+  align-content: center;
   gap: 0.5rem;
 }

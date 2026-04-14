@@ -40,7 +40,7 @@ export interface CityItemProps {
           to={`${id}?lat=${lat}&lng=${lng}`}
         >
           <span className={styles.emoji}>{emoji}</span>
-          <h3 className={styles.name}>{cityname}</h3>
+          <span className={styles.name}>{cityname}</span>
           <time className={styles.date}>{formattedDate}</time>
           <button className={styles.deleteBtn} onClick={handleDeleteClick}>
             &times;

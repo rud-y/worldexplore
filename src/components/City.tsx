@@ -37,45 +37,49 @@ function City() {
 
   return (
     <div className={styles.city}>
-      <div className={styles.row}>
-        <h6>City name</h6>
-        <h3>
-          <span>{emoji}</span> {cityname}
-        </h3>
-      </div>
-
-      <div className={styles.row}>
-        <h6>You went to {cityname} on</h6>
-        <p>{formatDate(date)}</p>
-      </div>
-
-      {notes && (
+      <dl className={styles.detailsList}>
         <div className={styles.row}>
-          <h6>Your notes</h6>
-          <p>{notes}</p>
+          <dt>City name</dt>
+          <dd>
+            <span>{emoji}</span> {cityname}
+          </dd>
         </div>
-      )}
 
-      <div className={styles.row}>
-        <h6>Learn more</h6>
-        <a
-          href={`https://en.wikipedia.org/wiki/${cityname}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Check out {cityname} on Wikipedia &rarr;
-        </a>
-      </div>
+        <div className={styles.row}>
+          <dt>You went to {cityname} on</dt>
+          <dd>{formatDate(date)}</dd>
+        </div>
 
-      <div>
-        <Button
-          onClick={() =>
-            navigate(`/app/form/${id}?lat=${currentCity?.lat}&lng=${currentCity?.lng}`)
-          }
-        >
-          Edit city info
-        </Button>
-      </div>
+        {notes && (
+          <div className={styles.row}>
+            <dt>Your notes</dt>
+            <dd>{notes}</dd>
+          </div>
+        )}
+
+        <div className={styles.row}>
+          <dt>Learn more</dt>
+          <a
+            href={`https://en.wikipedia.org/wiki/${cityname}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Check out {cityname} on Wikipedia &rarr;
+          </a>
+        </div>
+
+        <div>
+          <Button
+            onClick={() =>
+              navigate(
+                `/app/form/${id}?lat=${currentCity?.lat}&lng=${currentCity?.lng}`,
+              )
+            }
+          >
+            Edit city info
+          </Button>
+        </div>
+      </dl>
     </div>
   );
 }

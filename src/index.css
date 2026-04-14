@@ -11,8 +11,6 @@
   --color-dark--1: #1e1e1f;
   --color-dark--2: #1d4289;
   --color-dark--3: #173469;
-  /* --color-dark--1: #df1818;
-  --color-dark--2: #cae62b; */
 
   --color-light--1: #cfcbce;
   --color-light--2: #be84a3;
@@ -37,8 +35,8 @@ body {
   line-height: 1.6;
 }
 
-label {
-  font-size: 1.6rem;
+label, input, textarea {
+  font-size: 1.9rem;
   font-weight: 600;
 }
 
@@ -47,7 +45,6 @@ textarea {
   width: 100%;
   padding: 0.8rem 1.2rem;
   font-family: inherit;
-  font-size: 1.6rem;
   border: none;
   border-radius: 5px;
   background-color: var(--color-light--3);

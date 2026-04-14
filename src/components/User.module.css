@@ -1,21 +1,19 @@
 .user {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  padding: 0.1rem 0.4rem;
   background-color: var(--color-dark--2);
-  padding: 0.2rem 0.1rem;
+  border-bottom: 0.1rem solid var(--color-light--3);
   z-index: 999;
   font-size: 1.6rem;
   font-weight: 900;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.8rem;
 }
 
 .user button {
   background-color: var(--color-dark--2);
-  border-radius: 7px;
-  border: none;
   padding: 0.6rem 1.2rem;
   color: inherit;
   font-family: inherit;
