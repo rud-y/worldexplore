@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { useNavigate } from "react-router-dom";
-import styles from "./Login.module.css";
+import Button from "../components/Button";
+import styles from "./SignUp.module.css";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -14,11 +15,11 @@ export default function Signup() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!email || !password || !username) return;
+    if (!email || !password || !username) alert("Please, fill all the fields.");
 
     try {
-      await signup({ email, password, username });
-
+     console.log('Sign up hit !')
+      await signup({ username, email, password });
       alert("Registration successful! Please check your email or log in.");
       navigate("/login");
     } catch (err) {
@@ -27,13 +28,13 @@ export default function Signup() {
   }
 
   return (
-    <main className={styles.login}>
+    <main className={styles.signup}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <label htmlFor="name">Your Name</label>
+          <label htmlFor="username">Your Name</label>
           <input
             type="text"
-            id="name"
+            id="username"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             required
@@ -62,8 +63,9 @@ export default function Signup() {
           />
         </div>
 
-        <div>
-          <button className="btn">Sign Up</button>
+        <div className={styles.buttons}>
+          <Button type="submit">Sign Up</Button>
+          <Button type="button" onClick={() => navigate(-1)}>&larr; Back</Button>
         </div>
       </form>
     </main>

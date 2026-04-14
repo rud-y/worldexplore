@@ -1,0 +1,33 @@
+.signup {
+ margin: 0.2rem;
+ padding: 1.8rem 3rem;
+ background-color: var(--color-dark--1);
+ min-height: calc(100vh - 5rem);
+}
+  
+.form {
+ background-color: var(--color-light--2);
+ border-radius: 7px;
+ color: var(--color-dark--2);
+ display: flex;
+ flex-direction: column;
+ margin: 5rem auto;
+ gap: 2rem;
+ padding: 2rem 3rem;
+ width: 80%;
+}
+  
+.form input {
+ background-color: var(--color-light--1);
+}
+
+.row {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+}
+ 
+.buttons {
+ display: flex;
+ justify-content: space-between;
+}

@@ -44,7 +44,8 @@ type AuthAction =
  | { type: 'login', payload: User }
  | { type: 'logout' }
  | { type: 'loading_done' }
- | { type: 'signup', payload: User }
+ | { type: 'signup', payload: User | null }
+ | { type: 'rejected', payload: Error | string}
 
 
 const initialState: AuthenticationState = {
@@ -74,10 +75,17 @@ function reducer(state: AuthenticationState, action: AuthAction) {
     case "signup":
       return {
         ...state,
-        user: null,
-        isAuthenticated: initialState.isAuthenticated,
+        user: action.payload,
+        isAuthenticated: true,
         isLoading: false,
       };
+
+    case "rejected":
+      return {
+       ...state,
+       isAuthenticated: false,
+       isLoading: false,
+      }
 
     default:
      console.log("Supabase sent an unhandled action:", action.type);
@@ -119,14 +127,20 @@ function AuthProvider({ children }: PropsWithChildren) {
   }, []);
 
   async function signup({ email, password, username }: {email: string, password: string, username: string}) {
-    const { error } = await supabase.auth.signUp({
+
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: { full_name: username, avatar_url: "https://i.pravatar.cc/100" },
       },
-    });
-    if (error) throw new Error(error.message);
+     });
+     if(data.user) {
+      dispatch({ type: "signup", payload: data.user})
+     }
+     if (error) {
+      dispatch({ type: "rejected", payload: error.message})
+     }
   }
 
   async function login({

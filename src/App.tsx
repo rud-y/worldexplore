@@ -12,6 +12,7 @@ import { Navigate } from "react-router-dom";
 import { CitiesProvider } from "./contexts/CitiesContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import Signup from "./pages/SignUp";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               <Route path="product" element={<Product />} />
               <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
               <Route index element={<Homepage />} />
               <Route
                 path="app"

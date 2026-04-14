@@ -6,41 +6,33 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
 export default function Login() {
- // PRE-FILL FOR DEV PURPOSES
- const [email, setEmail] = useState("");
- const [password, setPassword] = useState("");
- const [username, _setUsername] = useState("");
- const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
- const { login, signup, isAuthenticated } = useAuth();
- const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   async function handleSubmit(e: FormEvent) {
    e.preventDefault();
 
    try {
-    if(isLogin) {
      await login({ email, password})
-    } else {
-     await signup({username, email, password})
-     alert("Check email for confirmation link")
-     setIsLogin(true);
-    }
    } catch (err) {
     alert(err instanceof Error ? err.message : "Failed authentication!")
    }
   }
-  
-  useEffect(function() {
-   if(isAuthenticated) navigate("/app", { replace: true})
 
-  }, [isAuthenticated, navigate])
+  useEffect(
+    function () {
+      if (isAuthenticated) navigate("/app", { replace: true });
+    },
+    [isAuthenticated, navigate],
+  );
 
   return (
     <main className={styles.login}>
       <PageNav />
       <form className={styles.form} onSubmit={handleSubmit}>
-        <h2>{isLogin ? "LOGIN" : "SIGNUP"}</h2>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -63,20 +55,17 @@ export default function Login() {
             required
           />
         </div>
-
         <div>
-          <Button type="submit">{isLogin ? "LOGIN" : "SIGNUP"}</Button>
+          <Button type="submit">LOGIN</Button>
         </div>
-
         <div className={styles.toggle}>
-          <p>
-            {isLogin ? "Don't have an account?" : "Already have an account?"}
+          <p>Don't have an account?
             <button
               type="button"
               className={styles.linkBtn}
-              onClick={() => setIsLogin(!isLogin)}
+              onClick={() => navigate("/signup")}
             >
-              {isLogin ? "Sign up now" : "Login instead"}
+             Sign up now
             </button>
           </p>
         </div>
