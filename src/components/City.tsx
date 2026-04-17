@@ -39,7 +39,7 @@ function City() {
     <div className={styles.city}>
       <dl className={styles.detailsList}>
         <div className={styles.row}>
-          <dt>City name</dt>
+          <dt>City</dt>
           <dd>
             <span>{emoji}</span> {cityname}
           </dd>

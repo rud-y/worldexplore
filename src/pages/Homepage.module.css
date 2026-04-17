@@ -5,10 +5,10 @@
       rgba(36, 42, 46, 0.8),
       rgba(36, 42, 46, 0.8)
     ),
-    url("/img-1.jpg");
+    url("/vancouver2__.jpg");
   background-size: cover;
   background-position: center;
-  padding: 1.8rem 3rem;
+  padding: 1.8rem 1.9rem;
 }
 
 .homepage section {

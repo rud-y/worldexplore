@@ -1,15 +1,21 @@
 .logo {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 1.8rem;
+ letter-spacing: -0.1rem;
  height: 4rem;
- margin-bottom: 3rem;
+ /* margin-bottom: 3rem; */
  padding: 0;
  text-decoration: none;
 
- .world {
-  color: #ffffff;
+ .roam {
+  color: var(--color-light--2);
  }
  
- .explore {
-  color: var(--color-light--2);
+ .log {
+  color: var(--color-brand--1);
+  /* position: absolute;
+  top: 4.8rem; */
+  
  }
 }
 

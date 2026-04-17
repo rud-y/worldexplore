@@ -5,7 +5,9 @@ function Logo() {
   return (
     <Link to="/">
       <div className={styles.logo}>
-        <h1 className={styles.world}>WORLD</h1><h1 className={styles.explore}>EXPLORE</h1>
+        <h1 className={styles.roam}>Roam
+          <span className={styles.log}>Log</span>
+        </h1>
       </div>
     </Link>
   );

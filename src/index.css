@@ -35,13 +35,14 @@ body {
   line-height: 1.6;
 }
 
-label, input, textarea {
+label, textarea {
   font-size: 1.9rem;
   font-weight: 600;
 }
 
 input,
 textarea {
+  font-weight: 400;
   width: 100%;
   padding: 0.8rem 1.2rem;
   font-family: inherit;

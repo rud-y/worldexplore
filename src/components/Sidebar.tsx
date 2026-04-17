@@ -9,8 +9,6 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
      <Logo />
      <AppNav />
-
-     {/* <p>List of Cities</p> */}
      <Outlet />
      <footer className={styles.footer}>
       <Copyright />

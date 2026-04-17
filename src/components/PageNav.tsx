@@ -17,7 +17,7 @@ function PageNav() {
      ) : (
        <ul>
          <li>
-           <NavLink to="/product">Products</NavLink>
+           <NavLink to="/about">About</NavLink>
          </li>
          <li>
            <NavLink to="/login">Login</NavLink>

@@ -9,7 +9,7 @@ export default function CountriesList() {
  
  if(isLoading) { return <Spinner />}
 
- if(!cities.length) return <Message message="Add your first city - click on the city on the Map"/>
+ if(!cities.length) return <Message message="Navigate the map to add your first place"/>
 
  const countries = cities.reduce<Country[]>((acc, current) => {
    if (!acc.some((c) => c.country === current.country)) {
@@ -23,13 +23,13 @@ export default function CountriesList() {
 
 
  return (
-   <div>
+   <>
      <h1 className={styles.title}>Countries you have visited...</h1>
      <ul className={styles.countriesList}>
        {countries.map((country) => (
          <CountryItem country={country} key={country.country} />
        ))}
      </ul>
-   </div>
+   </>
  );
 }

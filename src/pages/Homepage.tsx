@@ -5,17 +5,20 @@ import PageNav from "../components/PageNav"
 export default function Homepage() {
   return (
     <main className={styles.homepage}>
-     <PageNav />
+      <PageNav />
       <section>
         <h1>
-          You travel the world.
+          The footprint of your travels.
           <br />
         </h1>
         <h2>
-          A world map that tracks your footsteps into every city. Never forget your experience.
+          From bustling skylines to quiet corners, record where you’ve been and
+          how it felt to be there. Your world, beautifully cataloged
         </h2>
 
-        <Link to="/login" className="cta">Start tracking now</Link>
+        <Link to="/login" className="cta">
+          Start now
+        </Link>
       </section>
     </main>
   );

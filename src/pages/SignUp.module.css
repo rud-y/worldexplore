@@ -1,8 +1,8 @@
 .signup {
  margin: 0.2rem;
- padding: 1.8rem 3rem;
  background-color: var(--color-dark--1);
  min-height: calc(100vh - 5rem);
+ padding: 1.8rem 1.9rem;
 }
   
 .form {
@@ -13,8 +13,8 @@
  flex-direction: column;
  margin: 5rem auto;
  gap: 2rem;
- padding: 2rem 3rem;
  width: 80%;
+ padding: 2rem;
 }
   
 .form input {

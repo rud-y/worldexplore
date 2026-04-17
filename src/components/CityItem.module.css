@@ -41,8 +41,8 @@
   border: none;
   background-color: var(--color-dark--1);
   color: var(--color-light--1);
-  font-size: 3.2rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 300;
   cursor: pointer;
   transition: all 0.2s;
 }

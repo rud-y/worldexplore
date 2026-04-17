@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./pages/Product";
+import About from "./pages/About";
 import Homepage from "./pages/Homepage";
 import AppLayout from "./pages/AppLayout";
 import PageNotFound from "./pages/PageNotFound";
@@ -21,7 +21,7 @@ function App() {
         <CitiesProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="product" element={<Product />} />
+              <Route path="about" element={<About />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
               <Route index element={<Homepage />} />
@@ -34,11 +34,8 @@ function App() {
                 }
               >
                 <Route index element={<Navigate replace to="cities" />} />
-                {/* <Route path="cities" element={<CityList cities={cities} isLoading={isLoading}/>} /> */}
                 <Route path="cities" element={<CityList />} />
-
                 <Route path="cities/:id" element={<City />} />
-
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />
                 <Route path="form/:id" element={<Form />} />
