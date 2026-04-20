@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom"
-import styles from "./PageNav.module.css"
-import Logo from "./Logo"
-import PageNavBurger from "./PageNavBurger"
-import useScreenSize from "../hooks/UseScreenSize"
+import { NavLink } from "react-router-dom";
+import styles from "./PageNav.module.css";
+import Logo from "./Logo";
+import PageNavBurger from "./PageNavBurger";
+import useScreenSize from "../hooks/UseScreenSize";
 
 
 function PageNav() {
  const screenSize = useScreenSize();
- const maxScreenSize = 680;
+ const maxScreenSize = 700;
 
  return (
    <nav className={styles.nav}>

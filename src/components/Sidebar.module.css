@@ -1,7 +1,7 @@
 .sidebar {
   flex-basis: 26rem;
   background-color: var(--color-dark--1);
-  padding: 4rem 1rem 3rem 1rem;
+  padding: 0 1rem 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,7 @@
     url("/granada__.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 .sidebar a {
@@ -22,6 +23,15 @@
 
 .sidebar ul {
  list-style: none;
+}
+
+.logoWrap {
+ position: sticky;
+ top: -0.5rem;
+ left: 0;
+ margin-right: auto;
+ width: fit-content;
+ align-self: flex-start;
 }
 
 .footer {

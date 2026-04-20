@@ -1,9 +1,8 @@
 .logo {
- font-family: 'Montserrat', sans-serif;
  font-size: 1.8rem;
- letter-spacing: -0.1rem;
+ font-family: 'Sora', sans-serif;
+ letter-spacing: -0.6rem;
  height: 4rem;
- /* margin-bottom: 3rem; */
  padding: 0;
  text-decoration: none;
 
@@ -13,9 +12,6 @@
  
  .log {
   color: var(--color-brand--1);
-  /* position: absolute;
-  top: 4.8rem; */
-  
  }
 }
 

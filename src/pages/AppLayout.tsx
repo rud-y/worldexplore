@@ -1,18 +1,18 @@
 import Sidebar from "../components/Sidebar";
-import styles from './AppLayout.module.css'
-import Map from '../components/Map'
-import User from '../components/User'
+import styles from './AppLayout.module.css';
+import Map from '../components/Map';
+import User from '../components/User';
 
 function AppLayout() {
  return (
-  <>
-   <User />
-   <div className={styles.app}>
-    <Sidebar />
-    <Map />
-   </div>
-  </>
- )
+   <>
+     <User />
+     <div className={styles.app}>
+       <Sidebar />
+       <Map />
+     </div>
+   </>
+ );
 }
 
 export default AppLayout;

@@ -6,10 +6,10 @@ export default function About() {
     <main className={styles.about}>
       <PageNav />
       <section>
-        <img
-          src="granada__.jpg"
-          alt="person with dog overlooking mountain with sunset"
-        />
+        <picture>
+          <source srcSet="granada2__.jpg" type="image/webp" />
+          <img src="granada__.jpg" alt="City of Granada" loading="lazy" />
+        </picture>
         <div>
           <h2>About RoamLog</h2>
           <p>
@@ -18,7 +18,8 @@ export default function About() {
             preserve the moments that a camera can’t always catch. We believe we
             travel to find ourselves, but we often leave pieces of our story
             behind in the cities we visit. RoamLog helps you gather those pieces
-            back up. It’s more than just a list of coordinates. It’s a living map of your life.
+            back up. It’s more than just a list of coordinates. It’s a living
+            map of your life.
           </p>
           <p>
             Stop wondering when you were there and start building your legacy of
