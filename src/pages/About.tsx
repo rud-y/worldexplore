@@ -11,13 +11,13 @@ export default function About() {
           <img src="granada__.jpg" alt="City of Granada" loading="lazy" />
         </picture>
         <div>
-          <h2>About roamlog</h2>
+          <h2>About globelog</h2>
           <p>
-            The Journey is Yours. roamlog was built for those who move. It’s a
+            The Journey is Yours. globelog was built for those who move. It’s a
             simple, intentional space to track your global footprint and
             preserve the moments that a camera can’t always catch. We believe we
             travel to find ourselves, but we often leave pieces of our story
-            behind in the cities we visit. roamlog helps you gather those pieces
+            behind in the cities we visit. globelog helps you gather those pieces
             back up. It’s more than just a list of coordinates. It’s a living
             map of your life.
           </p>

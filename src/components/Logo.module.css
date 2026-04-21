@@ -1,12 +1,12 @@
 .logo {
  font-size: 1.8rem;
  font-family: 'Sora', sans-serif;
- letter-spacing: -0.6rem;
+ letter-spacing: -0.4rem;
  height: 4rem;
  padding: 0;
  text-decoration: none;
 
- .roam {
+ .globe {
   color: var(--color-light--2);
  }
  
