@@ -11,6 +11,10 @@
     background-position: center;
     padding: 1.8rem 1.9rem;
  }
+
+ .login h1 {
+  margin: 0 auto;
+ }
  
  .form {
   background-color: var(--color-light--2);

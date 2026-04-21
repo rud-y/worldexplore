@@ -33,6 +33,7 @@ export default function Login() {
     <main className={styles.login}>
       <PageNav />
       <form className={styles.form} onSubmit={handleSubmit}>
+        <h1>Login</h1>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -59,13 +60,14 @@ export default function Login() {
           <Button type="submit">LOGIN</Button>
         </div>
         <div className={styles.toggle}>
-          <p>Don't have an account?
+          <p>
+            Don't have an account?
             <button
               type="button"
               className={styles.linkBtn}
               onClick={() => navigate("/signup")}
             >
-             Sign up now
+              Sign up now
             </button>
           </p>
         </div>

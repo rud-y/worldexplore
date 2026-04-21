@@ -30,6 +30,7 @@ export default function Signup() {
   return (
     <main className={styles.signup}>
       <form className={styles.form} onSubmit={handleSubmit}>
+        <h1>Sign up to roamlog</h1>
         <div className={styles.row}>
           <label htmlFor="username">Your Name</label>
           <input
@@ -65,7 +66,9 @@ export default function Signup() {
 
         <div className={styles.buttons}>
           <Button type="submit">Sign Up</Button>
-          <Button type="button" onClick={() => navigate(-1)}>&larr; Back</Button>
+          <Button type="button" onClick={() => navigate(-1)}>
+            &larr; Back
+          </Button>
         </div>
       </form>
     </main>
