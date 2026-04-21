@@ -11,7 +11,9 @@ function PageNav() {
 
  return (
    <nav className={styles.nav}>
+    <div className={styles.logoWrapper}>
      <Logo />
+    </div>
      {screenSize.width < maxScreenSize ? (
        <PageNavBurger />
      ) : (

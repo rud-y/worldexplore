@@ -5,8 +5,8 @@ function Logo() {
   return (
     <Link to="/">
       <div className={styles.logo}>
-        <h1 className={styles.roam}>Roam
-          <span className={styles.log}>Log</span>
+        <h1 className={styles.roam}>roam
+          <span className={styles.log}>log</span>
         </h1>
       </div>
     </Link>
