@@ -70,7 +70,10 @@ function Form () {
   useEffect(() => {
    if (isEditForm && currentCity) {
     setCityName(currentCity.cityname);
-    if(currentCity.date) setDate(new Date(currentCity.date));
+    if (currentCity.date) {
+      const parsedDate = new Date(currentCity.date);
+      setDate(!isNaN(parsedDate.getTime()) ? parsedDate : new Date());
+    }
     setNotes(currentCity.notes || "");
     setCountry(currentCity.country);
     setEmoji(currentCity.emoji || "");
@@ -89,7 +92,7 @@ function Form () {
       cityname,
       country,
       emoji: emoji ?? undefined,
-      date,
+      date: date.toISOString(),
       notes,
       lat: mapLat,
       lng: mapLng,
