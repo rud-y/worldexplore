@@ -1,6 +1,6 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "./Button";
 import styles from "./Form.module.css";
@@ -114,51 +114,54 @@ function Form () {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <form
-      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
-      onSubmit={handleSubmit}
-    >
-     <h1>Add your new city</h1>
-      <div className={styles.row}>
-        <label htmlFor="cityName">City name</label>
-        <input
-          id="cityName"
-          onChange={(e) => setCityName(e.target.value)}
-          value={cityname}
-        />
-        <span className={styles.flag}>{emoji}</span>
-      </div>
+      <form
+        aria-label={isEditForm ? "Edit city" : "Add a new city"}
+        className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+        onSubmit={handleSubmit}
+      >
+        <h1 aria-hidden="true">{isEditForm ? "Edit this city" : "Add your new city"}</h1>
+        <div className={styles.row}>
+          <label htmlFor="cityName">City name</label>
+          <input
+            id="cityName"
+            onChange={(e) => setCityName(e.target.value)}
+            value={cityname}
+          />
+          <span className={styles.flag}>{emoji}</span>
+        </div>
 
-      <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityname}?</label>
-        <DatePicker
-          selected={date}
-          onChange={(date) => setDate(date)}
-          dateFormat={"dd/MM/yyyy"}
-        />
-      </div>
+        <div className={styles.row}>
+          <label htmlFor="date">When did you go to {cityname}?</label>
+          <DatePicker
+            selected={date}
+            onChange={(date) => setDate(date)}
+            dateFormat={"dd/MM/yyyy"}
+          />
+        </div>
 
-      <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityname}</label>
-        <textarea
-          id="notes"
-          onChange={(e) => setNotes(e.target.value)}
-          value={notes}
-        />
-      </div>
+        <div className={styles.row}>
+          <label htmlFor="notes">Notes about your trip to {cityname}</label>
+          <textarea
+            id="notes"
+            onChange={(e) => setNotes(e.target.value)}
+            value={notes}
+          />
+        </div>
 
-      <div className={styles.buttons}>
-        <Button type="submit">{isEditForm ? "Update city info" : "Add"}</Button>
-        <Button
-          type="button"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          &larr; Back
-        </Button>
-      </div>
-    </form>
+        <div className={styles.buttons}>
+          <Button type="submit">
+            {isEditForm ? "Update city info" : "Add"}
+          </Button>
+          <Button
+            type="button"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            &larr; Back
+          </Button>
+        </div>
+      </form>
   );
 }
 

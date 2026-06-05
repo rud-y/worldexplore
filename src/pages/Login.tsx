@@ -32,8 +32,8 @@ export default function Login() {
   return (
     <main className={styles.login}>
       <PageNav />
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <h1>Login</h1>
+      <form aria-label="Login" className={styles.form} onSubmit={handleSubmit}>
+        <h1 aria-hidden="true">Login</h1>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
