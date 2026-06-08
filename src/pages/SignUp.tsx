@@ -29,7 +29,7 @@ export default function Signup() {
 
   return (
     <main className={styles.signup}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form aria-label="Sign up" className={styles.form} onSubmit={handleSubmit}>
         <h1>Sign up to globelog</h1>
         <div className={styles.row}>
           <label htmlFor="username">Your Name</label>

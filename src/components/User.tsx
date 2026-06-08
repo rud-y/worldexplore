@@ -13,10 +13,13 @@ function User() {
 
   if (!user) return null;
 
+  const userFullName = user.user_metadata?.full_name;
+  console.log('USER--- ', user)
+
   return (
-    <div className={styles.user}>
-      <span>Welcome, {user.user_metadata?.full_name || "User"}</span>
-      <button onClick={handleLogout}>Logout</button>
+    <div className={styles.user} role="region" aria-label={`Welcome ${userFullName}`}>
+      <span aria-hidden="true">Welcome, {userFullName || "User"}</span>
+      <button onClick={handleLogout}>Log out</button>
     </div>
   );
 }

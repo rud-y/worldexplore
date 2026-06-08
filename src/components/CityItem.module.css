@@ -12,7 +12,21 @@
   border-left: 5px solid var(--color-brand--2);
   cursor: pointer;
   text-decoration: none;
-}
+ }
+ 
+ .futureDateItem {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  background-color: var(--color-light--4);
+  color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 1rem 1.4rem;
+  margin: 0.5rem;
+  border-left: 5px solid var(--color-brand--2);
+  cursor: pointer;
+  text-decoration: none;
+  }
 
 .cityItem--active {
   border: 2px solid var(--color-brand--2);

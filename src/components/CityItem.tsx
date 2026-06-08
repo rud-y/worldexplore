@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { City } from './City'
 import { useCities } from '../contexts/CitiesContext';
 import React from 'react';
+import { isFutureDate } from '../utils/isFutureDate';
 export interface CityItemProps {
   city: City;
 }
@@ -27,6 +28,8 @@ export interface CityItemProps {
     
     function handleDeleteClick(e: React.MouseEvent<HTMLButtonElement>) {
      e.preventDefault();
+
+     alert(`ARE YOU SURE YOU WANT TO DELETE ${city.cityname} ?`)
   
      deleteCity(id);
     }
@@ -36,13 +39,13 @@ export interface CityItemProps {
     return (
       <li>
         <Link
-          className={styles.cityItem}
+          className={isFutureDate(date) ? styles.futureDateItem : styles.cityItem}
           to={`${id}?lat=${lat}&lng=${lng}`}
         >
           <span className={styles.emoji}>{emoji}</span>
           <span className={styles.name}>{cityname}</span>
           <time className={styles.date}>{formattedDate}</time>
-          <button className={styles.deleteBtn} onClick={handleDeleteClick}>
+          <button className={styles.deleteBtn} onClick={handleDeleteClick} aria-label={`Delete item: ${cityname}`}>
             &times;
           </button>
         </Link>

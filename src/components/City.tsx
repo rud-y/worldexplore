@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import { formatDate } from "../utils/formatDate"
+import { isFutureDate } from "../utils/isFutureDate";
 import Spinner from "./Spinner";
 import Button from "./Button";
 
@@ -46,7 +47,7 @@ function City() {
         </div>
 
         <div className={styles.row}>
-          <dt>You went to {cityname} on</dt>
+          <dt>You {isFutureDate(date) ? "are going" : "went"} to {cityname} on</dt>
           <dd>{formatDate(date)}</dd>
         </div>
 
