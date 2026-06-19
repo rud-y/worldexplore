@@ -134,4 +134,93 @@ describe("CityList", () => {
       screen.queryByText("Are you sure you want to delete Paris?"),
     ).not.toBeInTheDocument();
   });
+
+  it("renders filter controls when cities exist", () => {
+    mockUseCities.mockReturnValue({
+      cities: [createMockCity({ cityname: "Paris", country: "France" })],
+      isLoading: false,
+      currentCity: null,
+      getCity: vi.fn(),
+      createCity: vi.fn(),
+      updateCity: vi.fn(),
+      deleteCity,
+    });
+
+    renderWithRouter(<CityList />);
+
+    expect(screen.getByLabelText("Search places")).toBeInTheDocument();
+    expect(screen.getByLabelText("Year")).toBeInTheDocument();
+    expect(screen.getByLabelText("Country")).toBeInTheDocument();
+  });
+
+  it("filters cities by search, year, and country", async () => {
+    const user = userEvent.setup();
+    const cities = [
+      createMockCity({
+        id: "1",
+        cityname: "Paris",
+        country: "France",
+        date: "2024-01-15",
+      }),
+      createMockCity({
+        id: "2",
+        cityname: "Tokyo",
+        country: "Japan",
+        date: "2023-05-20",
+      }),
+    ];
+
+    mockUseCities.mockReturnValue({
+      cities,
+      isLoading: false,
+      currentCity: null,
+      getCity: vi.fn(),
+      createCity: vi.fn(),
+      updateCity: vi.fn(),
+      deleteCity,
+    });
+
+    renderWithRouter(<CityList />);
+
+    expect(screen.getByText("Paris")).toBeInTheDocument();
+    expect(screen.getByText("Tokyo")).toBeInTheDocument();
+
+    await user.type(screen.getByLabelText("Search places"), "tok");
+
+    expect(screen.queryByText("Paris")).not.toBeInTheDocument();
+    expect(screen.getByText("Tokyo")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Clear" }));
+    await user.selectOptions(screen.getByLabelText("Year"), "2024");
+
+    expect(screen.getByText("Paris")).toBeInTheDocument();
+    expect(screen.queryByText("Tokyo")).not.toBeInTheDocument();
+
+    await user.selectOptions(screen.getByLabelText("Country"), "France");
+
+    expect(screen.getByText("Paris")).toBeInTheDocument();
+  });
+
+  it("shows a message when no cities match the filters", async () => {
+    const user = userEvent.setup();
+
+    mockUseCities.mockReturnValue({
+      cities: [createMockCity({ cityname: "Paris", country: "France" })],
+      isLoading: false,
+      currentCity: null,
+      getCity: vi.fn(),
+      createCity: vi.fn(),
+      updateCity: vi.fn(),
+      deleteCity,
+    });
+
+    renderWithRouter(<CityList />);
+
+    await user.type(screen.getByLabelText("Search places"), "Berlin");
+
+    expect(
+      screen.getByText("No places match your filters"),
+    ).toBeInTheDocument();
+    expect(screen.queryByText("Paris")).not.toBeInTheDocument();
+  });
 });

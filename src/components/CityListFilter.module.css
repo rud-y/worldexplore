@@ -1,0 +1,62 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-light--2);
+  border-radius: 7px;
+}
+
+.searchRow,
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filtersRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.field {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.filter input,
+.filter select {
+  background-color: var(--color-light--1);
+}
+
+.filter select {
+  font-weight: 400;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  color: var(--color-dark--2);
+  cursor: pointer;
+}
+
+.clearBtn {
+  align-self: flex-end;
+  padding: 0.8rem 1.2rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  background-color: var(--color-dark--3);
+}
