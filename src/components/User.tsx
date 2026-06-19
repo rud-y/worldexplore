@@ -14,7 +14,6 @@ function User() {
   if (!user) return null;
 
   const userFullName = user.user_metadata?.full_name;
-  console.log('USER--- ', user)
 
   return (
     <div className={styles.user} role="region" aria-label={`Welcome ${userFullName}`}>

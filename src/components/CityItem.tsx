@@ -1,12 +1,12 @@
 import styles from './CityItem.module.css'
 import { Link } from 'react-router-dom'
 import { City } from './City'
-import { useCities } from '../contexts/CitiesContext';
-import React, { useState } from 'react';
+import React from 'react';
 import { isFutureDate } from '../utils/isFutureDate';
-import Modal from './Modal';
+
 export interface CityItemProps {
   city: City;
+  onDeleteRequest: (city: City) => void;
 }
 
  const formatDate = (date?: string | Date | null) => {
@@ -23,41 +23,24 @@ export interface CityItemProps {
    }).format(d);
  };
   
-  export default function CityItem({ city }: CityItemProps) {
+  export default function CityItem({ city, onDeleteRequest }: CityItemProps) {
     const { id, date, lat, lng, emoji, cityname } = city;
-    const { deleteCity } = useCities();
-    const [showDeleteModal, setShowDeleteModal] = useState(false);
-    
+
     function handleDeleteClick(e: React.MouseEvent<HTMLButtonElement>) {
      e.preventDefault();
-     setShowDeleteModal(true);
+     onDeleteRequest(city);
     }
 
-    function handleConfirmDelete() {
-      deleteCity(id);
-      setShowDeleteModal(false);
-    }
-
-    function handleCancelDelete() {
-      setShowDeleteModal(false);
-    }
-    
     const formattedDate = formatDate(date);
 
     return (
       <li>
-        <Modal
-          isOpen={showDeleteModal}
-          question={`Are you sure you want to delete ${cityname}?`}
-          onConfirm={handleConfirmDelete}
-          onCancel={handleCancelDelete}
-        />
         <Link
           className={isFutureDate(date) ? styles.futureDateItem : styles.cityItem}
           to={`${id}?lat=${lat}&lng=${lng}`}
         >
           <span className={styles.emoji}>{emoji}</span>
-          <span className={styles.name}>{cityname}</span>
+          <span className={styles.name}>{cityname}</span> 
           <time className={styles.date}>{formattedDate}</time>
           <button
             className={styles.deleteBtn}
