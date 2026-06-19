@@ -1,17 +1,23 @@
-import styles from './Button.module.css'
+import { forwardRef } from "react";
+import styles from "./Button.module.css";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function Button({
-  children,
-  onClick,
-  type="button",
-  className,
-  ...rest
-}: ButtonProps ) {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { children, onClick, type = "button", className, ...rest },
+  ref
+) {
   return (
-    <button type={type} onClick={onClick} className={`${styles.btn} ${className}`} {...rest}>
+    <button
+      ref={ref}
+      type={type}
+      onClick={onClick}
+      className={`${styles.btn} ${className ?? ""}`}
+      {...rest}
+    >
       {children}
     </button>
   );
-}
+});
+
+export default Button;

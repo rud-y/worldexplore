@@ -1,0 +1,38 @@
+.modal {
+  margin: auto;
+  width: min(calc(100% - 4rem), 42rem);
+  padding: 2.4rem;
+  border: none;
+  border-radius: 7px;
+  background-color: rgba(2, 2, 2, 0.90);;
+  color: var(--color-light--2);
+  box-shadow: 0 1.2rem 3.2rem rgba(119, 118, 119, 0.35);
+}
+
+.modal::backdrop {
+  background-color: rgba(17, 17, 17, 0.65);
+}
+
+.question {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-light--2);
+  text-align: center;
+  margin-bottom: 2.4rem;
+  line-height: 1.4;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.cancelBtn {
+  background-color: var(--color-light--1);
+  color: var(--color-dark--1);
+}
+
+.cancelBtn:hover {
+  background-color: var(--color-light--3);
+}
