@@ -9,5 +9,10 @@ export default defineConfig({
    outDir: 'dist',
    sourcemap: 'hidden',
    minify: 'esbuild'
-  }
+  },
+  test: {
+    environment: 'jsdom',
+    setupFiles: './tests/unit/setup.ts',
+    css: true,
+  },
 })
