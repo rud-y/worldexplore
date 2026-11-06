@@ -8,7 +8,7 @@ export default function About() {
       <section>
         <picture>
           <source srcSet="granada2__.jpg" type="image/webp" />
-          <img src="granada__.jpg" alt="City of Granada" loading="lazy" />
+          <img src="granada__.jpg" alt="City of Granada" />
         </picture>
         <div>
           <h2>About globelog</h2>
